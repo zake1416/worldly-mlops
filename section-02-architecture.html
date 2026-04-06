@@ -20,11 +20,11 @@
     </a>
     <div class="topnav-divider"></div>
     <nav class="topnav-links">
-      <a class="tnl" href="index.html"><span class="tnl-num">00</span> Overview</a>
-      <a class="tnl active" href="section-02-architecture.html"><span class="tnl-num">01</span> Operating Model</a>
-      <a class="tnl" href="section-03-aws-vs-oss.html"><span class="tnl-num">02</span> Decision Principles</a>
-      <a class="tnl" href="section-04-phases.html"><span class="tnl-num">03</span> Execution Plan</a>
-      <a class="tnl" href="section-05-risks.html"><span class="tnl-num">04</span> Risk Reduction</a>
+      <a class="tnl" href="index.html"><span class="tnl-num"></span> Overview</a>
+      <a class="tnl active" href="section-02-architecture.html"><span class="tnl-num"></span> Operating Model</a>
+      <a class="tnl" href="section-03-aws-vs-oss.html"><span class="tnl-num"></span> Decision Principles</a>
+      <a class="tnl" href="section-04-phases.html"><span class="tnl-num"></span> Execution Plan</a>
+      <a class="tnl" href="section-05-risks.html"><span class="tnl-num"></span> Risk Reduction</a>
     </nav>
   </div>
 </header>
@@ -75,15 +75,15 @@
 <div class="sec-wrap" data-anim="fade-up">
   <div class="sec-num">02</div>
   <h2>MLOps <span class="g">Operating Model</span></h2>
-  <p class="sec-sub">This is how I would structure the platform so product teams can ship with less operational drag. The emphasis is reliability first, product usefulness second, and infrastructure complexity only where it earns its keep.</p>
+  <p class="sec-sub">The platform should let product teams ship with less operational drag. The emphasis is reliability first, product usefulness second, and infrastructure complexity only where it earns its keep.</p>
 </div>
 <div class="content">
 
   <div class="exec-goal" data-anim="fade-up" data-delay="1">
     <div class="goal-card">
-      <div class="goal-kicker">How I Would Help</div>
+      <div class="goal-kicker">Value Created</div>
       <div class="goal-title">Make the platform <span>easier to trust, easier to ship, and easier to extend.</span></div>
-      <p class="goal-copy">My value is in turning data and ML workflows into dependable product infrastructure: quality gates, repeatable deployment, clear lineage, and pragmatic support for AI where it actually helps the product.</p>
+      <p class="goal-copy">The value is dependable product infrastructure: quality gates, repeatable deployment, clear lineage, and pragmatic support for AI where it actually helps the product.</p>
     </div>
     <div class="goal-meta">
       <div>
@@ -131,9 +131,9 @@
 
   <div class="ribbon">
     <div>
-      <div class="ribbon-label">How I Operate</div>
+      <div class="ribbon-label">Operating Approach</div>
       <div class="ribbon-title">Structured, consultative, and practical.</div>
-      <div class="ribbon-copy">I frame the bottleneck, surface the viable paths, document the tradeoffs, and drive milestone-based execution with product, DevOps, data, analytics, and architecture as active partners.</div>
+      <div class="ribbon-copy">Frame the bottleneck, surface the viable paths, document the tradeoffs, and drive milestone-based execution with product, DevOps, data, analytics, and architecture as active partners.</div>
     </div>
     <div class="ribbon-tools">
       <span>Decision memos</span>
@@ -178,9 +178,10 @@
         </div>
         <div class="arch-legend">
           <span class="arch-legend-item"><i class="arch-dot arch-dot-input"></i> Inputs</span>
+          <span class="arch-legend-item"><i class="arch-dot arch-dot-infra"></i> Control plane</span>
           <span class="arch-legend-item"><i class="arch-dot arch-dot-data"></i> Data plane</span>
           <span class="arch-legend-item"><i class="arch-dot arch-dot-ai"></i> Intelligence</span>
-          <span class="arch-legend-item"><i class="arch-dot arch-dot-infra"></i> Control plane</span>
+          
         </div>
       </div>
 
@@ -474,7 +475,7 @@
             <p class="dsec-text">The Higg Facility Environmental Module (FEM) collects quantitative data on energy, water, waste, chemicals, and GHG from factories. The FSLM covers social and labor. These are direct operating inputs, which is exactly why the platform needs strong data handling before downstream reporting or AI can be trusted.</p>
           </div>
           <div class="dsec"><div class="dsec-title">The infrastructure problem</div>
-            <p class="dsec-text">Primary assessment data, operational updates, and supporting evidence create the kind of input complexity that can quietly break reporting and AI. This is why I would start with a governed ingestion path and a reproducible storage model before trying to expand downstream intelligence.</p>
+            <p class="dsec-text">Primary assessment data, operational updates, and supporting evidence create the kind of input complexity that can quietly break reporting and AI. The right starting point is a governed ingestion path and a reproducible storage model before expanding downstream intelligence.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Business value</div>
             <div><span class="biz-pill biz-g">Core product input</span><span class="biz-pill biz-g">Regulatory workflows</span><span class="biz-pill biz-g">Platform trust</span></div>
@@ -511,10 +512,10 @@
         </div>
         <div class="det-body">
           <div class="dsec"><div class="dsec-title">What it includes</div>
-            <p class="dsec-text">Beyond Higg assessments: production volume data, material provenance, chemical inventories, third-party audit results, and carbon intensity measurements. This kind of multi-tier data footprint is one reason I would keep the ingestion and governance model explicit rather than ad hoc.</p>
+            <p class="dsec-text">Beyond Higg assessments: production volume data, material provenance, chemical inventories, third-party audit results, and carbon intensity measurements. This kind of multi-tier data footprint is one reason to keep the ingestion and governance model explicit rather than ad hoc.</p>
           </div>
           <div class="dsec"><div class="dsec-title">The China constraint</div>
-            <p class="dsec-text">Regional data handling rules can create situations where supplier or factory data should not leave a specific jurisdiction. I would treat that as a product and infrastructure constraint early, not as a deployment detail to clean up later.</p>
+            <p class="dsec-text">Regional data handling rules can create situations where supplier or factory data should not leave a specific jurisdiction. That should be treated as a product and infrastructure constraint early, not as a deployment detail to clean up later.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Business value</div>
             <div><span class="biz-pill biz-r">China compliance</span><span class="biz-pill biz-g">Multi-tier visibility</span></div>
@@ -570,8 +571,8 @@
           <div class="det-tag">Guaranteed-delivery document ingestion for compliance-sensitive evidence</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would consider it</div>
-            <p class="dsec-text">For document-heavy evidence flows, I would prefer a tool that treats delivery guarantees, retries, and provenance as first-class concerns rather than afterthoughts. That matters more here than having the most fashionable ingestion stack.</p>
+          <div class="dsec"><div class="dsec-title">Why it fits</div>
+            <p class="dsec-text">For document-heavy evidence flows, the better fit is a tool that treats delivery guarantees, retries, and provenance as first-class concerns rather than afterthoughts. That matters more here than having the most fashionable ingestion stack.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why NiFi for Worldly</div>
             <p class="dsec-text">NiFi is designed for <strong>guaranteed-delivery, document-oriented dataflow</strong> with explicit failure handling. Audit PDFs, certificates, and supplier documents need to arrive in the lakehouse reliably  a dropped document that doesn't generate an error is worse than a visible failure. NiFi routes failures to dead-letter queues with full provenance. You know exactly what failed, why, and what the data was.</p>
@@ -590,8 +591,8 @@
           <div class="det-tag">Open connector layer for broad integration coverage without bespoke maintenance everywhere</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would consider it</div>
-            <p class="dsec-text">I would consider Airbyte when the team needs wide connector coverage without turning integrations into a custom engineering tax. The appeal is less bespoke code and a more repeatable ingestion model.</p>
+          <div class="dsec"><div class="dsec-title">Why it fits</div>
+            <p class="dsec-text">Airbyte fits when the team needs wide connector coverage without turning integrations into a custom engineering tax. The appeal is less bespoke code and a more repeatable ingestion model.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text">Airbyte gives Worldly <strong>faster integration coverage with less bespoke connector maintenance</strong>. For regulatory and partner APIs, that means shorter time-to-value and lower operational drag. The open-source version self-hosts on Kubernetes, which preserves China compatibility and avoids pushing sensitive supplier data through third-party integration infrastructure.</p>
@@ -610,8 +611,8 @@
           <div class="det-tag">Version-controlled transformation layer for reviewable, auditable business logic</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would consider it</div>
-            <p class="dsec-text">I would prefer a transformation layer that keeps logic versioned, reviewable, and visible to the broader team. The main value is a cleaner operating model for shared analytical logic.</p>
+          <div class="dsec"><div class="dsec-title">Why it fits</div>
+            <p class="dsec-text">The better fit is a transformation layer that keeps logic versioned, reviewable, and visible to the broader team. The main value is a cleaner operating model for shared analytical logic.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text"><strong>Auditor-ready lineage</strong> is the real reason to use dbt here. Every CSRD figure becomes traceable to its raw source, every transformation is version-controlled, and every logic change is reviewable. When an auditor asks how a number was produced, the answer is a model lineage path, not institutional memory.</p>
@@ -630,8 +631,8 @@
           <div class="det-tag">Data quality gates that keep bad inputs out of downstream systems</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would start here</div>
-            <p class="dsec-text">I would rather put effort into explicit quality contracts than debug downstream surprises later. Validation rules, quarantines, and visible failures create a much better operating model than quietly accepting bad data and discovering the damage in reporting or ML outputs.</p>
+          <div class="dsec"><div class="dsec-title">Why start here</div>
+            <p class="dsec-text">Effort belongs in explicit quality contracts rather than in debugging downstream surprises later. Validation rules, quarantines, and visible failures create a much better operating model than quietly accepting bad data and discovering the damage in reporting or ML outputs.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text"><strong>Automated integrity gates</strong> matter more than marginal model gains. If corrupted ESG inputs reach reporting or ML pipelines, Worldly risks bad scores, broken trust, and downstream regulatory exposure for customers. Great Expectations lets the platform quarantine bad batches before they contaminate the source of truth.</p>
@@ -650,8 +651,8 @@
           <div class="det-tag">S3-compatible object storage  recommended for sovereignty and portability</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would bias this way</div>
-            <p class="dsec-text">I would choose MinIO when portability and deployment symmetry matter more than maximizing convenience inside one cloud. The point is to preserve one storage pattern across regions and avoid turning the data layer into a long-term constraint.</p>
+          <div class="dsec"><div class="dsec-title">Why this bias</div>
+            <p class="dsec-text">MinIO fits when portability and deployment symmetry matter more than maximizing convenience inside one cloud. The point is to preserve one storage pattern across regions and avoid turning the data layer into a long-term constraint.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text"><strong>Global parity</strong> is the real benefit. MinIO is S3-compatible, open-source, and self-hostable on any cloud, so the same application pattern can run in the US, EU, and China without forking the storage layer. That directly supports sovereign data handling while keeping the engineering model unified.</p>
@@ -670,8 +671,8 @@
           <div class="det-tag">Open table format with schema evolution and time travel  recommended for long-lived analytical data</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would bias this way</div>
-            <p class="dsec-text">I would choose Iceberg when the platform needs to absorb schema change without turning every update into a migration project. The value is not novelty. It is a calmer operating model for long-lived analytical data.</p>
+          <div class="dsec"><div class="dsec-title">Why this bias</div>
+            <p class="dsec-text">Iceberg fits when the platform needs to absorb schema change without turning every update into a migration project. The value is not novelty. It is a calmer operating model for long-lived analytical data.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text"><strong>Future-proof schema</strong> and <strong>time travel</strong> are the reasons this belongs in Worldly's core. Higg methodologies change annually, and audit questions often arrive months later. Iceberg handles evolving schemas without painful migrations and lets Worldly reproduce exactly what a dataset looked like on a prior date when an auditor or customer needs proof.</p>
@@ -710,8 +711,8 @@
           <div class="det-tag">Asset-based orchestration for better visibility into what changed and what needs to run</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would choose this pattern</div>
-            <p class="dsec-text">I would prefer orchestration that is aware of data assets, not just scheduled tasks. That makes it easier for teams to see what changed, what is stale, and what needs to be recomputed when upstream data or logic moves.</p>
+          <div class="dsec"><div class="dsec-title">Why this pattern</div>
+            <p class="dsec-text">The better fit is orchestration that is aware of data assets, not just scheduled tasks. That makes it easier for teams to see what changed, what is stale, and what needs to be recomputed when upstream data or logic moves.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why Dagster over Airflow</div>
             <p class="dsec-text">Airflow schedules tasks. Dagster tracks <strong>assets</strong>. That distinction is critical for Worldly: when a raw Higg assessment batch updates, Dagster automatically surfaces which downstream dbt models, feature tables, and model scores are stale and need recomputation. With Airflow you'd wire that lineage manually and maintain it every time the schema changes. For a compliance platform where audit reproducibility is a product requirement, asset-aware orchestration is not a preference  it's the right architecture.</p>
@@ -730,8 +731,8 @@
           <div class="det-tag">Model tracking and registry for reproducibility and controlled change</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would insist on it</div>
-            <p class="dsec-text">If model behavior influences product or reporting workflows, I would want every promoted model to be traceable, reviewable, and easy to roll back. That is less about ML sophistication and more about dependable product operations.</p>
+          <div class="dsec"><div class="dsec-title">Why it matters</div>
+            <p class="dsec-text">If model behavior influences product or reporting workflows, every promoted model should be traceable, reviewable, and easy to roll back. That is less about ML sophistication and more about dependable product operations.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why this matters for regulatory outputs</div>
             <p class="dsec-text">When Worldly's Product Impact Calculator produces a Scope 3 estimate that appears in a CSRD report, that figure must be <strong>reproducible and explainable months later</strong>. MLflow's model registry logs the exact model version, training data hash, hyperparameters, and environment for every production model. If an auditor questions a figure 12 months later, the answer exists in MLflow.</p>
@@ -750,8 +751,8 @@
           <div class="det-tag">Self-hosted embedding layer for private retrieval and search workflows</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would keep this self-hosted</div>
-            <p class="dsec-text">For private retrieval workflows, I would prefer self-hosted embedding models so the team can keep sensitive data in-house and iterate on relevance without depending on an external API for every change.</p>
+          <div class="dsec"><div class="dsec-title">Why keep this self-hosted</div>
+            <p class="dsec-text">For private retrieval workflows, self-hosted embedding models keep sensitive data in-house and allow relevance tuning without depending on an external API for every change.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why self-hosted matters</div>
             <p class="dsec-text">Supplier chemical inventories, social audit data, and facility-level business performance cannot be sent to a third-party embedding API. Self-hosted models via HuggingFace keep all data within Worldly's infrastructure  contractually clean and China-region compatible.</p>
@@ -771,7 +772,7 @@
         </div>
         <div class="det-body">
           <div class="dsec"><div class="dsec-title">Why vLLM over SageMaker or TGI</div>
-            <p class="dsec-text">I would choose an inference layer like vLLM when the team needs private serving, reasonable concurrency, and the option to run outside a single cloud vendor's managed path. The main value is operational flexibility, not simply raw model throughput.</p>
+            <p class="dsec-text">An inference layer like vLLM fits when the team needs private serving, reasonable concurrency, and the option to run outside a single cloud vendor's managed path. The main value is operational flexibility, not simply raw model throughput.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text">vLLM is about <strong>private scale</strong>. It supports high-concurrency AI serving while keeping supplier and facility data inside Worldly-controlled infrastructure. That combination matters because the assistant must be both broadly usable during peak season and acceptable for sovereign or contract-sensitive data.</p>
@@ -790,11 +791,11 @@
           <div class="det-tag">Vector search for retrieval workflows that need scoped, relevant context</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would use it carefully</div>
-            <p class="dsec-text">I would introduce vector search only when there is a clear retrieval use case that benefits from it. The value is not in having a vector database. The value is in grounding search and AI workflows with better context and clearer scope.</p>
+          <div class="dsec"><div class="dsec-title">Why use it carefully</div>
+            <p class="dsec-text">Vector search belongs only when there is a clear retrieval use case that benefits from it. The value is not in having a vector database. The value is in grounding search and AI workflows with better context and clearer scope.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why Qdrant specifically</div>
-            <p class="dsec-text">Qdrant is open-source, self-hostable, and has strong multi-tenancy for isolating vector spaces by application (Worldly Assistant, product scoring, supplier risk) without running separate instances. It supports <strong>metadata filtering</strong> alongside vector search  critical for scoping "find relevant Higg guidance for FEM section 3 questions" vs "find methodology text for chemical management." I'd evaluate Qdrant vs Milvus before committing  either would work.</p>
+            <p class="dsec-text">Qdrant is open-source, self-hostable, and has strong multi-tenancy for isolating vector spaces by application (Worldly Assistant, product scoring, supplier risk) without running separate instances. It supports <strong>metadata filtering</strong> alongside vector search  critical for scoping "find relevant Higg guidance for FEM section 3 questions" vs "find methodology text for chemical management." Qdrant and Milvus are both viable; the final choice would depend on operational fit.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Business value</div>
             <div><span class="biz-pill biz-v">Powers Worldly Assistant</span><span class="biz-pill biz-r">Multi-region deployable</span></div>
@@ -810,11 +811,11 @@
           <div class="det-tag">Retrieval orchestration for use cases that need grounded, cited answers</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would use this pattern</div>
-            <p class="dsec-text">If an assistant is going to be useful in a product like this, I would want it grounded in retrieved context with explicit instructions around source use and answer boundaries. That reduces the odds of a fluent but unsafe answer entering a sensitive workflow.</p>
+          <div class="dsec"><div class="dsec-title">Why this pattern</div>
+            <p class="dsec-text">If an assistant is going to be useful in a product like this, it should be grounded in retrieved context with explicit instructions around source use and answer boundaries. That reduces the odds of a fluent but unsafe answer entering a sensitive workflow.</p>
           </div>
           <div class="dsec"><div class="dsec-title">What the Worldly Assistant needs</div>
-            <p class="dsec-text">A user asking for guidance needs a response grounded in the right policy or methodology section, not a plausible improvisation. I would treat that as a product safety problem first and a model problem second.</p>
+            <p class="dsec-text">A user asking for guidance needs a response grounded in the right policy or methodology section, not a plausible improvisation. That is a product safety problem first and a model problem second.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Business value</div>
             <div><span class="biz-pill biz-r">Worldly Assistant backbone</span><span class="biz-pill biz-g">No hallucinated compliance guidance</span></div>
@@ -831,10 +832,10 @@
         </div>
         <div class="det-body">
           <div class="dsec"><div class="dsec-title">Why Evidently AI specifically</div>
-            <p class="dsec-text">I would favor monitoring that stays close to the platform, plugs into existing orchestration, and makes drift visible before it becomes a product issue. The point is operational awareness, not another standalone dashboard.</p>
+            <p class="dsec-text">The right fit is monitoring that stays close to the platform, plugs into existing orchestration, and makes drift visible before it becomes a product issue. The point is operational awareness, not another standalone dashboard.</p>
           </div>
           <div class="dsec"><div class="dsec-title">What gets monitored and why it's regulatory</div>
-            <p class="dsec-text">The Product Impact Calculator's Scope 3 estimates appear in <strong>legally-mandated CSRD disclosures</strong>. I monitor input feature drift separately from prediction drift  the distinction matters for diagnosis: stable features with drifting predictions signals a model failure; both drifting signals an upstream data distribution shift. Either fires an alert before an inaccurate figure reaches a regulatory report. That's legal liability prevention, not product quality.</p>
+            <p class="dsec-text">The Product Impact Calculator's Scope 3 estimates appear in <strong>legally-mandated CSRD disclosures</strong>. Input feature drift should be monitored separately from prediction drift  the distinction matters for diagnosis: stable features with drifting predictions signals a model failure; both drifting signals an upstream data distribution shift. Either should fire an alert before an inaccurate figure reaches a regulatory report. That's legal liability prevention, not product quality.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Business value</div>
             <div><span class="biz-pill biz-r">Prevents inaccurate CSRD filings</span><span class="biz-pill biz-g">Integrated with Dagster checks</span><span class="biz-pill biz-g">Zero data egress</span></div>
@@ -850,8 +851,8 @@
           <div class="det-tag">A shared runtime model that keeps deployment behavior consistent across environments</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would keep the runtime consistent</div>
-            <p class="dsec-text">I would rather give teams one deployment model they can learn well than several environment-specific ones they have to keep reinterpreting. Shared runtime behavior reduces operational surprise and makes delivery calmer.</p>
+          <div class="dsec"><div class="dsec-title">Why keep the runtime consistent</div>
+            <p class="dsec-text">Teams benefit more from one deployment model they can learn well than from several environment-specific ones they have to keep reinterpreting. Shared runtime behavior reduces operational surprise and makes delivery calmer.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text"><strong>Global parity</strong> is the key outcome. The same Kubernetes deployment model can be adapted for US, EU, and China environments with region-specific configuration rather than separate codebases. That keeps operational muscle memory unified while respecting data residency constraints.</p>
@@ -870,8 +871,8 @@
           <div class="det-tag">Infrastructure as code so environments are reviewable, reproducible, and less person-dependent</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would insist on it</div>
-            <p class="dsec-text">I would want infrastructure changes to be reviewed like code, repeated safely across environments, and understandable by more than one person. That makes scaling the team easier and lowers operational risk.</p>
+          <div class="dsec"><div class="dsec-title">Why it matters</div>
+            <p class="dsec-text">Infrastructure changes should be reviewed like code, repeated safely across environments, and understandable by more than one person. That makes scaling the team easier and lowers operational risk.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text">Terraform makes <strong>global consistency auditable</strong>. The same baseline can be applied across providers, which reduces regional drift and makes security or compliance hardening repeatable. For a company operating across sovereign boundaries, that consistency is an executive control advantage, not just an engineering convenience.</p>
@@ -890,8 +891,8 @@
           <div class="det-tag">Automated deployment path for safer, more routine change management</div>
         </div>
         <div class="det-body">
-          <div class="dsec"><div class="dsec-title">Why I would put this in early</div>
-            <p class="dsec-text">I would make change safer before making it faster. Once tests, deploy checks, and rollback expectations are part of the normal path, the team can move with much more confidence.</p>
+          <div class="dsec"><div class="dsec-title">Why put this in early</div>
+            <p class="dsec-text">Change should become safer before it becomes faster. Once tests, deploy checks, and rollback expectations are part of the normal path, the team can move with much more confidence.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Why it wins</div>
             <p class="dsec-text">The point of CI/CD here is <strong>controlled change</strong>. Every model or transformation update can be tested, benchmarked, and phased into production with rollback protection. That lowers the odds of a silent regression reaching a customer-facing report or scoring workflow.</p>
@@ -914,13 +915,13 @@
             <p class="dsec-text">Interactive ESG analytics with <strong>real-time decision support</strong> for brands and internal teams. Powered by ClickHouse over the Iceberg lakehouse for sub-second responses on complex queries.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Worldly Assistant</div>
-            <p class="dsec-text">AI guidance for assessment workflows should be grounded, bounded, and easy to audit. I would treat this as a product capability that earns its way in once the underlying retrieval and governance path is solid.</p>
+            <p class="dsec-text">AI guidance for assessment workflows should be grounded, bounded, and easy to audit. This should be treated as a product capability that earns its way in once the underlying retrieval and governance path is solid.</p>
           </div>
           <div class="dsec"><div class="dsec-title">CSRD / Compliance Reports</div>
             <p class="dsec-text">Audit-ready regulatory reporting. Powered by <strong>dbt lineage plus Iceberg time travel</strong> so every figure stays traceable, reproducible, and defensible months later.</p>
           </div>
           <div class="dsec"><div class="dsec-title">Product Impact Calculator</div>
-            <p class="dsec-text">Product-level impact workflows should sit on top of clean joins, reproducible model paths, and clear ownership boundaries. I would only scale this once those foundations are in place.</p>
+            <p class="dsec-text">Product-level impact workflows should sit on top of clean joins, reproducible model paths, and clear ownership boundaries. Scale belongs after those foundations are in place.</p>
           </div>
         </div>
       </div>

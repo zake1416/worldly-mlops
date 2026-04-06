@@ -20,11 +20,11 @@
     </a>
     <div class="topnav-divider"></div>
     <nav class="topnav-links">
-      <a class="tnl" href="index.html"><span class="tnl-num">00</span> Overview</a>
-      <a class="tnl" href="section-02-architecture.html"><span class="tnl-num">01</span> Operating Model</a>
-      <a class="tnl active" href="section-03-aws-vs-oss.html"><span class="tnl-num">02</span> Decision Principles</a>
-      <a class="tnl" href="section-04-phases.html"><span class="tnl-num">03</span> Execution Plan</a>
-      <a class="tnl" href="section-05-risks.html"><span class="tnl-num">04</span> Risk Reduction</a>
+      <a class="tnl" href="index.html"><span class="tnl-num"></span> Overview</a>
+      <a class="tnl" href="section-02-architecture.html"><span class="tnl-num"></span> Operating Model</a>
+      <a class="tnl active" href="section-03-aws-vs-oss.html"><span class="tnl-num"></span> Decision Principles</a>
+      <a class="tnl" href="section-04-phases.html"><span class="tnl-num"></span> Execution Plan</a>
+      <a class="tnl" href="section-05-risks.html"><span class="tnl-num"></span> Risk Reduction</a>
     </nav>
   </div>
 </header>
@@ -75,7 +75,7 @@
 <div class="sec-wrap" data-anim="fade-up">
   <div class="sec-num">03</div>
   <h2>The architecture decision: <span class="g">AWS-first where it helps, portable where it matters.</span></h2>
-  <p class="sec-sub">I would use AWS where it accelerates execution, keep core data layers portable where constraints are real, and avoid early choices that create expensive lock-in.</p>
+  <p class="sec-sub">Use AWS where it accelerates execution, keep core data layers portable where constraints are real, and avoid early choices that create expensive lock-in.</p>
 </div>
 <div class="content">
   <table class="wtable" data-anim="fade-up" data-delay="1">
@@ -141,13 +141,13 @@
         <div class="tco-col-title">Hybrid operating model</div>
         <div class="tco-col-sub">EKS + MinIO + Iceberg + OSS inference</div>
         <div class="tco-col-cost">Best balance</div>
-        <div class="tco-col-note">This is where I would start when the business needs both delivery speed and long-term flexibility. It keeps execution moving without hard-coupling the layers most likely to matter later.</div>
+        <div class="tco-col-note">This is the right starting point when the business needs both delivery speed and long-term flexibility. It keeps execution moving without hard-coupling the layers most likely to matter later.</div>
       </div>
       <div class="tco-col">
         <div class="tco-col-title">Self-managed everywhere</div>
         <div class="tco-col-sub">Self-managed K8s + MinIO + everything OSS</div>
         <div class="tco-col-cost">Highest control</div>
-        <div class="tco-col-note">I would avoid this early unless a hard constraint forces it. It adds the most operating burden at the point where the team should be learning fast and reducing uncertainty.</div>
+        <div class="tco-col-note">Best avoided early unless a hard constraint forces it. It adds the most operating burden at the point where the team should be learning fast and reducing uncertainty.</div>
       </div>
     </div>
     <div class="tco-footer">The goal is not to forecast exact spend. The goal is to choose an operating model that matches product constraints, team capacity, and the pace of iteration the business needs.</div>

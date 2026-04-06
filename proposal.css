@@ -325,7 +325,7 @@ body.brand-page::before{
   background-image:none;
 }
 body.brand-page .topo-bg svg{
-  opacity:0.3;
+  opacity:0.42;
 }
 body.brand-page .page-main{
   max-width:1400px;
@@ -431,7 +431,7 @@ body.brand-page .risk-cell{
 
 /* Overview page: compact executive board */
 body.overview-page{background:var(--clean-slate)}
-body.overview-page .topo-bg svg{opacity:0.82}
+body.overview-page .topo-bg svg{opacity:0.94}
 body.overview-page .page-main{
   max-width:1440px;
   margin:0 auto;

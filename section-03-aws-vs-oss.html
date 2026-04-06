@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 03 - Decision Principles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="proposal.css">
+</head>
+<body class="page-shell brand-page">
+<header class="topnav" id="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="worldly-cto-proposal-v2.html">
+      <div class="topnav-logo">W</div>
+      <div>
+        <div class="topnav-title">MLOps Value Proposition</div>
+        <div class="topnav-sub">Abhishek Birajdar perspective</div>
+      </div>
+    </a>
+    <div class="topnav-divider"></div>
+    <nav class="topnav-links">
+      <a class="tnl" href="worldly-cto-proposal-v2.html"><span class="tnl-num">00</span> Overview</a>
+      <a class="tnl" href="section-02-architecture.html"><span class="tnl-num">01</span> Operating Model</a>
+      <a class="tnl active" href="section-03-aws-vs-oss.html"><span class="tnl-num">02</span> Decision Principles</a>
+      <a class="tnl" href="section-04-phases.html"><span class="tnl-num">03</span> Execution Plan</a>
+      <a class="tnl" href="section-05-risks.html"><span class="tnl-num">04</span> Risk Reduction</a>
+    </nav>
+    <div class="topnav-cta">
+      <span class="topnav-name">Abhishek Birajdar</span>
+      <a class="topnav-btn" href="mailto:acbirajdar16@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</header>
+<main class="page-main">
+<div class="topo-bg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" preserveAspectRatio="xMaxYMin meet">
+    <defs>
+      <filter id="topo" x="-40%" y="-40%" width="180%" height="180%">
+        <feTurbulence type="turbulence" baseFrequency="0.009 0.007" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="45" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <g filter="url(#topo)" fill="none" stroke="#C41230" stroke-width="0.8">
+      <circle cx="880" cy="60" r="15"  stroke-opacity="0.22"/>
+      <circle cx="880" cy="60" r="35"  stroke-opacity="0.21"/>
+      <circle cx="880" cy="60" r="55"  stroke-opacity="0.20"/>
+      <circle cx="880" cy="60" r="75"  stroke-opacity="0.19"/>
+      <circle cx="880" cy="60" r="95"  stroke-opacity="0.18"/>
+      <circle cx="880" cy="60" r="115" stroke-opacity="0.17"/>
+      <circle cx="880" cy="60" r="135" stroke-opacity="0.16"/>
+      <circle cx="880" cy="60" r="155" stroke-opacity="0.15"/>
+      <circle cx="880" cy="60" r="175" stroke-opacity="0.14"/>
+      <circle cx="880" cy="60" r="195" stroke-opacity="0.13"/>
+      <circle cx="880" cy="60" r="215" stroke-opacity="0.12"/>
+      <circle cx="880" cy="60" r="235" stroke-opacity="0.115"/>
+      <circle cx="880" cy="60" r="255" stroke-opacity="0.11"/>
+      <circle cx="880" cy="60" r="275" stroke-opacity="0.105"/>
+      <circle cx="880" cy="60" r="295" stroke-opacity="0.10"/>
+      <circle cx="880" cy="60" r="315" stroke-opacity="0.09"/>
+      <circle cx="880" cy="60" r="335" stroke-opacity="0.085"/>
+      <circle cx="880" cy="60" r="355" stroke-opacity="0.08"/>
+      <circle cx="880" cy="60" r="375" stroke-opacity="0.075"/>
+      <circle cx="880" cy="60" r="395" stroke-opacity="0.07"/>
+      <circle cx="880" cy="60" r="415" stroke-opacity="0.065"/>
+      <circle cx="880" cy="60" r="435" stroke-opacity="0.06"/>
+      <circle cx="880" cy="60" r="455" stroke-opacity="0.055"/>
+      <circle cx="880" cy="60" r="475" stroke-opacity="0.05"/>
+      <circle cx="880" cy="60" r="495" stroke-opacity="0.045"/>
+      <circle cx="880" cy="60" r="515" stroke-opacity="0.04"/>
+      <circle cx="880" cy="60" r="535" stroke-opacity="0.035"/>
+      <circle cx="880" cy="60" r="555" stroke-opacity="0.03"/>
+      <circle cx="880" cy="60" r="575" stroke-opacity="0.025"/>
+      <circle cx="880" cy="60" r="595" stroke-opacity="0.02"/>
+    </g>
+  </svg>
+</div>
+<!-- ═══════ S3: DECISION PRINCIPLES ═══════ -->
+<div class="sec-wrap" data-anim="fade-up">
+  <div class="sec-num">03</div>
+  <h2>Decision principles for <span class="g">how I would build.</span></h2>
+  <p class="sec-sub">I would make infrastructure choices based on product speed, operational simplicity, privacy boundaries, and long-term portability, not on ideology.</p>
+</div>
+<div class="content">
+  <table class="wtable" data-anim="fade-up" data-delay="1">
+    <thead>
+      <tr><th>Consideration</th><th>Managed bias</th><th>Portable bias</th><th>What I would optimize for</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>China deployment</strong></td>
+        <td>AWS S3 doesn't work in mainland China. SageMaker has minimal China presence. Requires a separate Chinese AWS account with different APIs and legal entity.</td>
+        <td>MinIO self-hosts on Alibaba Cloud or Huawei Cloud. Same S3-compatible API, same Terraform module, different provider. vLLM runs on both platforms' GPU instances.</td>
+        <td><span class="tag-h">Hard requirement</span></td>
+      </tr>
+      <tr>
+        <td><strong>Data sovereignty (PIPL)</strong></td>
+        <td>Complex compliance posture. AWS China regions exist but are separate legal entities with unclear PIPL status.</td>
+        <td>Self-hosted MinIO in Chinese cloud: data physically never leaves China. Clean legal position.</td>
+        <td><span class="tag-h">Hard requirement</span></td>
+      </tr>
+      <tr>
+        <td><strong>Schema evolution for Higg updates</strong></td>
+        <td>RDS/Redshift schema changes require migrations. Breaking changes for downstream systems every time methodology updates.</td>
+        <td>Iceberg schema evolution: add columns in place, zero downtime, historical data stays queryable at old schema.</td>
+        <td><span class="tag-h">Annual requirement</span></td>
+      </tr>
+      <tr>
+        <td><strong>LLM data privacy</strong></td>
+        <td>SageMaker managed inference endpoints. Supplier chemical inventory and social audit data cannot go to managed US endpoints.</td>
+        <td>vLLM self-hosted. Supplier data never leaves Worldly infrastructure. Clean under data agreements.</td>
+        <td><span class="tag-h">Data agreements</span></td>
+      </tr>
+      <tr>
+        <td><strong>Cost at scale</strong></td>
+        <td>Managed services usually trade higher unit cost for faster setup and lower operational load.</td>
+        <td>Portable components usually lower long-run cost, but they ask more of the engineering team.</td>
+        <td><span class="tag-t">Tradeoff</span></td>
+      </tr>
+      <tr>
+        <td><strong>Setup speed</strong></td>
+        <td>Faster initial configuration. Less infrastructure management. Better if team size is the constraint.</td>
+        <td>More decisions upfront. More infrastructure to manage. Slower to first pipeline.</td>
+        <td><span class="tag-t">Tradeoff</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="alert alert-g" data-anim="scale-up">
+    <div class="alert-label">My bias</div>
+    <div class="alert-text"><strong>Managed where it reduces drag. Portable where it protects the product.</strong> I would use managed infrastructure for control-plane convenience, but keep the core data and model-serving layers portable where privacy, deployment flexibility, and long-lived product constraints matter more.</div>
+  </div>
+
+  <div class="tco-box" data-anim="fade-up">
+    <div class="tco-box-header">How I would think about the tradeoff, qualitatively.</div>
+    <div class="tco-cols">
+      <div class="tco-col">
+        <div class="tco-col-title">Managed-first</div>
+        <div class="tco-col-sub">SageMaker + Glue + Redshift + MSK</div>
+        <div class="tco-col-cost">Fastest start</div>
+        <div class="tco-col-note">Good when the priority is speed to a first operating baseline and the constraints are mostly inside one cloud. Less attractive when regional portability and private model serving become core product needs.</div>
+      </div>
+      <div class="tco-col tco-col-rec">
+        <div class="tco-col-badge">Recommended</div>
+        <div class="tco-col-title">Hybrid operating model</div>
+        <div class="tco-col-sub">EKS + MinIO + Iceberg + OSS inference</div>
+        <div class="tco-col-cost">Best balance</div>
+        <div class="tco-col-note">This is the operating model I would start with when the business needs both delivery speed and long-term flexibility. It keeps the team moving while avoiding hard coupling in the layers most likely to matter later.</div>
+      </div>
+      <div class="tco-col">
+        <div class="tco-col-title">Self-managed everywhere</div>
+        <div class="tco-col-sub">Self-managed K8s + MinIO + everything OSS</div>
+        <div class="tco-col-cost">Highest control</div>
+        <div class="tco-col-note">I would avoid this early unless there is a very strong constraint forcing it. It creates the most operational burden at exactly the point where the team should be learning fast and keeping execution calm.</div>
+      </div>
+    </div>
+    <div class="tco-footer">The point is not to predict exact spend. The point is to choose an operating model that matches product constraints, team capacity, and the pace of iteration you want.</div>
+  </div>
+</div>
+</main>
+<script src="animations.js"></script>
+</body>
+</html>

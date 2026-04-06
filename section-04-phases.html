@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 04 - Execution Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="proposal.css">
+</head>
+<body class="page-shell brand-page">
+<header class="topnav" id="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="worldly-cto-proposal-v2.html">
+      <div class="topnav-logo">W</div>
+      <div>
+        <div class="topnav-title">MLOps Value Proposition</div>
+        <div class="topnav-sub">Abhishek Birajdar perspective</div>
+      </div>
+    </a>
+    <div class="topnav-divider"></div>
+    <nav class="topnav-links">
+      <a class="tnl" href="worldly-cto-proposal-v2.html"><span class="tnl-num">00</span> Overview</a>
+      <a class="tnl" href="section-02-architecture.html"><span class="tnl-num">01</span> Operating Model</a>
+      <a class="tnl" href="section-03-aws-vs-oss.html"><span class="tnl-num">02</span> Decision Principles</a>
+      <a class="tnl active" href="section-04-phases.html"><span class="tnl-num">03</span> Execution Plan</a>
+      <a class="tnl" href="section-05-risks.html"><span class="tnl-num">04</span> Risk Reduction</a>
+    </nav>
+    <div class="topnav-cta">
+      <span class="topnav-name">Abhishek Birajdar</span>
+      <a class="topnav-btn" href="mailto:acbirajdar16@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</header>
+<main class="page-main">
+<div class="topo-bg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" preserveAspectRatio="xMaxYMin meet">
+    <defs>
+      <filter id="topo" x="-40%" y="-40%" width="180%" height="180%">
+        <feTurbulence type="turbulence" baseFrequency="0.009 0.007" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="45" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <g filter="url(#topo)" fill="none" stroke="#C41230" stroke-width="0.8">
+      <circle cx="880" cy="60" r="15"  stroke-opacity="0.22"/>
+      <circle cx="880" cy="60" r="35"  stroke-opacity="0.21"/>
+      <circle cx="880" cy="60" r="55"  stroke-opacity="0.20"/>
+      <circle cx="880" cy="60" r="75"  stroke-opacity="0.19"/>
+      <circle cx="880" cy="60" r="95"  stroke-opacity="0.18"/>
+      <circle cx="880" cy="60" r="115" stroke-opacity="0.17"/>
+      <circle cx="880" cy="60" r="135" stroke-opacity="0.16"/>
+      <circle cx="880" cy="60" r="155" stroke-opacity="0.15"/>
+      <circle cx="880" cy="60" r="175" stroke-opacity="0.14"/>
+      <circle cx="880" cy="60" r="195" stroke-opacity="0.13"/>
+      <circle cx="880" cy="60" r="215" stroke-opacity="0.12"/>
+      <circle cx="880" cy="60" r="235" stroke-opacity="0.115"/>
+      <circle cx="880" cy="60" r="255" stroke-opacity="0.11"/>
+      <circle cx="880" cy="60" r="275" stroke-opacity="0.105"/>
+      <circle cx="880" cy="60" r="295" stroke-opacity="0.10"/>
+      <circle cx="880" cy="60" r="315" stroke-opacity="0.09"/>
+      <circle cx="880" cy="60" r="335" stroke-opacity="0.085"/>
+      <circle cx="880" cy="60" r="355" stroke-opacity="0.08"/>
+      <circle cx="880" cy="60" r="375" stroke-opacity="0.075"/>
+      <circle cx="880" cy="60" r="395" stroke-opacity="0.07"/>
+      <circle cx="880" cy="60" r="415" stroke-opacity="0.065"/>
+      <circle cx="880" cy="60" r="435" stroke-opacity="0.06"/>
+      <circle cx="880" cy="60" r="455" stroke-opacity="0.055"/>
+      <circle cx="880" cy="60" r="475" stroke-opacity="0.05"/>
+      <circle cx="880" cy="60" r="495" stroke-opacity="0.045"/>
+      <circle cx="880" cy="60" r="515" stroke-opacity="0.04"/>
+      <circle cx="880" cy="60" r="535" stroke-opacity="0.035"/>
+      <circle cx="880" cy="60" r="555" stroke-opacity="0.03"/>
+      <circle cx="880" cy="60" r="575" stroke-opacity="0.025"/>
+      <circle cx="880" cy="60" r="595" stroke-opacity="0.02"/>
+    </g>
+  </svg>
+</div>
+<!-- ═══════ S4: PHASES ═══════ -->
+<div class="sec-wrap" data-anim="fade-up">
+  <div class="sec-num">04</div>
+  <h2>How I would <span class="g">sequence the work.</span></h2>
+  <p class="sec-sub">The order matters more than the tooling. I would establish trust in the data path first, then make delivery repeatable, then expand into higher-value AI and reporting workflows.</p>
+</div>
+<div class="content">
+  <div class="resource-ctx" data-anim="fade-left"><strong>Execution model:</strong> I would work as an enabling function across product, data, DevOps, and architecture. The point is not to build in isolation. The point is to reduce delivery friction and make the next set of product decisions easier.</div>
+  <div class="phases">
+    <div class="phase" data-anim="fade-left" data-delay="1">
+      <div class="p-left"><div class="p-lnum">Phase 01</div><div class="p-lname">Stabilize the critical path</div><div class="p-ltime">First</div></div>
+      <div class="p-right">
+        <div class="p-rtitle">Audit first. Understand the current stack, data gaps, and failure modes before building.</div>
+        <div class="p-tags">
+          <span class="pt pt-g">Embed with DevOps &amp; architecture teams</span>
+          <span class="pt pt-g">Audit current data lake &amp; GoBlu schemas</span>
+          <span class="pt pt-g">Map every source, schema &amp; quality failure mode</span>
+          <span class="pt pt-g">Define data quality contracts with data science</span>
+          <span class="pt pt-d">MinIO + Iceberg skeleton (AWS EKS)</span>
+          <span class="pt pt-d">First 3 Airbyte connectors</span>
+          <span class="pt pt-d">dbt + Great Expectations gates</span>
+          <span class="pt pt-s">Terraform IaC (US, AWS-first)</span>
+          <span class="pt pt-s">GitHub Actions baseline CI/CD</span>
+        </div>
+        <div class="p-metric"><strong>Done when:</strong> Sources are mapped, GoBlu IDs are reconciled, contracts are agreed, and the first pipeline passes quality gates.</div>
+      </div>
+    </div>
+    <div class="phase" data-anim="fade-right" data-delay="1">
+      <div class="p-left"><div class="p-lnum">Phase 02</div><div class="p-lname">Make delivery repeatable</div><div class="p-ltime">Next</div></div>
+      <div class="p-right">
+        <div class="p-rtitle">Build the platform before the models. Reproducible, tracked, and monitored from day one.</div>
+        <div class="p-tags">
+          <span class="pt pt-a">Dagster orchestration</span>
+          <span class="pt pt-a">MLflow tracking + model registry</span>
+          <span class="pt pt-a">Feast feature store for ESG embeddings</span>
+          <span class="pt pt-a">Model CI/CD with shadow deploy</span>
+          <span class="pt pt-d">Full Iceberg lakehouse (US + EU)</span>
+          <span class="pt pt-d">ClickHouse for Insights Hub</span>
+          <span class="pt pt-s">K8s multi-region (US + EU)</span>
+          <span class="pt pt-s">Drift monitoring baseline</span>
+        </div>
+        <div class="p-metric"><strong>Done when:</strong> A model can be trained, registered, deployed, and monitored end-to-end with no bespoke glue.</div>
+      </div>
+    </div>
+    <div class="phase" data-anim="fade-left" data-delay="1">
+      <div class="p-left"><div class="p-lnum">Phase 03</div><div class="p-lname">Expand into product leverage</div><div class="p-ltime">Then</div></div>
+      <div class="p-right">
+        <div class="p-rtitle">Launch RAG, China deployment, and product-level scoring once the data layer is stable.</div>
+        <div class="p-tags">
+          <span class="pt pt-v">LangChain RAG pipeline</span>
+          <span class="pt pt-v">Qdrant vector DB (multi-region)</span>
+          <span class="pt pt-v">vLLM self-hosted inference</span>
+          <span class="pt pt-r">China: MinIO on Alibaba / Huawei Cloud</span>
+          <span class="pt pt-r">China: StarRocks analytics</span>
+          <span class="pt pt-r">PIPL/DSL data boundaries</span>
+          <span class="pt pt-a">Product Impact Calculator models</span>
+        </div>
+        <div class="p-metric"><strong>Done when:</strong> The Assistant answers with citations, and China data stays resident while keeping the same operating model.</div>
+      </div>
+    </div>
+    <div class="phase" data-anim="fade-right" data-delay="1">
+      <div class="p-left"><div class="p-lnum">Phase 04</div><div class="p-lname">Scale what proves useful</div><div class="p-ltime">After that</div></div>
+      <div class="p-right">
+        <div class="p-rtitle">Scale compliance reporting, risk intelligence, and platform efficiency.</div>
+        <div class="p-tags">
+          <span class="pt pt-g">CSRD report generation pipeline</span>
+          <span class="pt pt-g">Digital Product Passport outputs</span>
+          <span class="pt pt-a">Worldly Axion risk scoring</span>
+          <span class="pt pt-s">Auto-scaling cost optimization</span>
+          <span class="pt pt-s">Full observability stack</span>
+        </div>
+        <div class="p-metric"><strong>Done when:</strong> Reporting is audit-ready, one-click, and clearly differentiated by infrastructure quality.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-closing" data-anim="pop">
+    <div class="phase-closing-label">What this approach is meant to create</div>
+    <div class="phase-closing-title">A calmer engineering environment for product teams that depend on data and ML.</div>
+    <div class="phase-closing-sub">If the sequence is right, the team gets cleaner handoffs, more reliable releases, and a safer path to AI capabilities that are genuinely useful.</div>
+  </div>
+</div>
+</main>
+<script src="animations.js"></script>
+</body>
+</html>

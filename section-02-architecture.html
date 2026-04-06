@@ -1,0 +1,989 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 02 - Operating Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="proposal.css">
+</head>
+<body class="page-shell brand-page architecture-page">
+<header class="topnav" id="topnav">
+  <div class="topnav-inner">
+    <a class="topnav-brand" href="worldly-cto-proposal-v2.html">
+      <div class="topnav-logo">W</div>
+      <div>
+        <div class="topnav-title">MLOps Value Proposition</div>
+        <div class="topnav-sub">Abhishek Birajdar perspective</div>
+      </div>
+    </a>
+    <div class="topnav-divider"></div>
+    <nav class="topnav-links">
+      <a class="tnl" href="worldly-cto-proposal-v2.html"><span class="tnl-num">00</span> Overview</a>
+      <a class="tnl active" href="section-02-architecture.html"><span class="tnl-num">01</span> Operating Model</a>
+      <a class="tnl" href="section-03-aws-vs-oss.html"><span class="tnl-num">02</span> Decision Principles</a>
+      <a class="tnl" href="section-04-phases.html"><span class="tnl-num">03</span> Execution Plan</a>
+      <a class="tnl" href="section-05-risks.html"><span class="tnl-num">04</span> Risk Reduction</a>
+    </nav>
+    <div class="topnav-cta">
+      <span class="topnav-name">Abhishek Birajdar</span>
+      <a class="topnav-btn" href="mailto:acbirajdar16@gmail.com">Get in touch</a>
+    </div>
+  </div>
+</header>
+<main class="page-main">
+<div class="topo-bg">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" preserveAspectRatio="xMaxYMin meet">
+    <defs>
+      <filter id="topo" x="-40%" y="-40%" width="180%" height="180%">
+        <feTurbulence type="turbulence" baseFrequency="0.009 0.007" numOctaves="4" seed="8" result="noise"/>
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="45" xChannelSelector="R" yChannelSelector="G"/>
+      </filter>
+    </defs>
+    <g filter="url(#topo)" fill="none" stroke="#C41230" stroke-width="0.8">
+      <circle cx="880" cy="60" r="15"  stroke-opacity="0.22"/>
+      <circle cx="880" cy="60" r="35"  stroke-opacity="0.21"/>
+      <circle cx="880" cy="60" r="55"  stroke-opacity="0.20"/>
+      <circle cx="880" cy="60" r="75"  stroke-opacity="0.19"/>
+      <circle cx="880" cy="60" r="95"  stroke-opacity="0.18"/>
+      <circle cx="880" cy="60" r="115" stroke-opacity="0.17"/>
+      <circle cx="880" cy="60" r="135" stroke-opacity="0.16"/>
+      <circle cx="880" cy="60" r="155" stroke-opacity="0.15"/>
+      <circle cx="880" cy="60" r="175" stroke-opacity="0.14"/>
+      <circle cx="880" cy="60" r="195" stroke-opacity="0.13"/>
+      <circle cx="880" cy="60" r="215" stroke-opacity="0.12"/>
+      <circle cx="880" cy="60" r="235" stroke-opacity="0.115"/>
+      <circle cx="880" cy="60" r="255" stroke-opacity="0.11"/>
+      <circle cx="880" cy="60" r="275" stroke-opacity="0.105"/>
+      <circle cx="880" cy="60" r="295" stroke-opacity="0.10"/>
+      <circle cx="880" cy="60" r="315" stroke-opacity="0.09"/>
+      <circle cx="880" cy="60" r="335" stroke-opacity="0.085"/>
+      <circle cx="880" cy="60" r="355" stroke-opacity="0.08"/>
+      <circle cx="880" cy="60" r="375" stroke-opacity="0.075"/>
+      <circle cx="880" cy="60" r="395" stroke-opacity="0.07"/>
+      <circle cx="880" cy="60" r="415" stroke-opacity="0.065"/>
+      <circle cx="880" cy="60" r="435" stroke-opacity="0.06"/>
+      <circle cx="880" cy="60" r="455" stroke-opacity="0.055"/>
+      <circle cx="880" cy="60" r="475" stroke-opacity="0.05"/>
+      <circle cx="880" cy="60" r="495" stroke-opacity="0.045"/>
+      <circle cx="880" cy="60" r="515" stroke-opacity="0.04"/>
+      <circle cx="880" cy="60" r="535" stroke-opacity="0.035"/>
+      <circle cx="880" cy="60" r="555" stroke-opacity="0.03"/>
+      <circle cx="880" cy="60" r="575" stroke-opacity="0.025"/>
+      <circle cx="880" cy="60" r="595" stroke-opacity="0.02"/>
+    </g>
+  </svg>
+</div>
+<!-- ═══════ S2: ARCHITECTURE ═══════ -->
+<div class="sec-wrap" data-anim="fade-up">
+  <div class="sec-num">02</div>
+  <h2>MLOps <span class="g">Operating Model</span></h2>
+  <p class="sec-sub">This is how I would structure the platform so product teams can ship with less operational drag. The emphasis is reliability first, product usefulness second, and infrastructure complexity only where it earns its keep.</p>
+</div>
+<div class="content">
+
+  <div class="exec-goal" data-anim="fade-up" data-delay="1">
+    <div class="goal-card">
+      <div class="goal-kicker">How I Would Help</div>
+      <div class="goal-title">Make the platform <span>easier to trust, easier to ship, and easier to extend.</span></div>
+      <p class="goal-copy">My value is in turning data and ML workflows into dependable product infrastructure: quality gates, repeatable deployment, clear lineage, and pragmatic support for AI where it actually helps the product.</p>
+    </div>
+    <div class="goal-meta">
+      <div>
+        <div class="goal-meta-label"></div>
+        <div class="goal-meta-value">Use-case-first execution with systems that scale cleanly</div>
+      </div>
+      <div class="goal-meta-copy">That means starting with small, useful capabilities, building calm operating habits around them, and only productizing what proves its value.</div>
+    </div>
+  </div>
+
+  <div class="outcome-grid" data-anim="fade-up">
+    <div class="outcome-card outcome-primary">
+      <div class="outcome-label">Value 01</div>
+      <div class="outcome-title">Lower execution risk</div>
+      <div class="outcome-text">Stronger quality gates, clearer ownership, and fewer silent failures.</div>
+    </div>
+    <div class="outcome-card outcome-primary">
+      <div class="outcome-label">Value 02</div>
+      <div class="outcome-title">Faster product delivery</div>
+      <div class="outcome-text">Reusable platform patterns so teams spend less time rebuilding the basics.</div>
+    </div>
+    <div class="outcome-card outcome-primary">
+      <div class="outcome-label">Value 03</div>
+      <div class="outcome-title">Safer AI adoption</div>
+      <div class="outcome-text">A governed path for search, retrieval, and model serving when the use case is ready.</div>
+    </div>
+  </div>
+
+  <div class="pillar-grid">
+    <div class="pillar-card">
+      <div class="pillar-label">Principle 01</div>
+      <div class="pillar-title">Quality before intelligence</div>
+      <div class="pillar-copy">I would put validation and lineage ahead of model sophistication so teams can trust what ships.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-label">Principle 02</div>
+      <div class="pillar-title">One operating model</div>
+      <div class="pillar-copy">I would prefer shared infrastructure patterns over one-off solutions that increase operational load.</div>
+    </div>
+    <div class="pillar-card">
+      <div class="pillar-label">Principle 03</div>
+      <div class="pillar-title">Product usefulness over tech novelty</div>
+      <div class="pillar-copy">I would treat AI as a product capability to prove carefully, not a platform story to force early.</div>
+    </div>
+  </div>
+
+  <div class="ribbon">
+    <div>
+      <div class="ribbon-label">How I Would Work</div>
+      <div class="ribbon-title">Partner across product, data, DevOps, and architecture.</div>
+      <div class="ribbon-copy">The role is most valuable when it reduces coordination cost for the rest of the team: clear interfaces, documented choices, and calm execution.</div>
+    </div>
+    <div class="ribbon-tools">
+      <span>Dagster</span>
+      <span>Great Expectations</span>
+      <span>MLflow</span>
+      <span>Terraform</span>
+    </div>
+  </div>
+
+  <div class="quick-win-box" data-anim="scale-up">
+    <div class="qw-header">How I would start</div>
+    <div class="qw-items">
+      <div class="qw-item"><div class="qw-num">01</div><div class="qw-text"><strong>Understand the current system.</strong> Sources, workflows, owners, and failure patterns mapped.</div></div>
+      <div class="qw-item"><div class="qw-num">02</div><div class="qw-text"><strong>Stabilize one meaningful path.</strong> One workflow made observable, testable, and safe to change.</div></div>
+      <div class="qw-item"><div class="qw-num">03</div><div class="qw-text"><strong>Codify the operating pattern.</strong> Reuse the same quality, lineage, and deployment model from there.</div></div>
+    </div>
+  </div>
+
+  <div class="adr-wrap" data-anim="fade-up">
+    <div class="adr-label">How I would make decisions</div>
+    <table class="adr-table">
+      <thead><tr><th>Decision</th><th>Likely direction</th><th>Alternative</th><th>What I would optimize for</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Orchestration</strong></td><td>Dagster</td><td>Airflow</td><td>Asset lineage is native. Better fit for a regulated data platform.</td></tr>
+        <tr><td><strong>Table format</strong></td><td>Apache Iceberg</td><td>Delta Lake, Hudi</td><td>Handles schema evolution and time travel without painful rewrites.</td></tr>
+        <tr><td><strong>Drift monitoring</strong></td><td>Evidently AI</td><td>WhyLogs, Arize</td><td>Self-hosted, open-source, and easy to wire into Dagster checks.</td></tr>
+        <tr><td><strong>Vector DB</strong></td><td>Qdrant</td><td>Milvus, Weaviate</td><td>Strong multi-tenancy and metadata filtering in one self-hosted stack.</td></tr>
+        <tr><td><strong>LLM inference</strong></td><td>vLLM</td><td>SageMaker, TGI</td><td>Private high-concurrency serving, including non-AWS regions.</td></tr>
+        <tr><td><strong>Object storage</strong></td><td>MinIO</td><td>HDFS, Ceph</td><td>One S3-compatible storage model across US, EU, and China.</td></tr>
+        <tr><td><strong>Feature store</strong></td><td>Feast</td><td>Tecton, Hopsworks</td><td>Open-source and portable for shared ESG features and embeddings.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="arch-wrap" data-anim="fade-up">
+    <div>
+      <div class="arch-system-intro">
+        <div>
+          <div class="arch-map-kicker">System view</div>
+          <div class="arch-map-title">A platform shape built around execution, not tool collecting.</div>
+          <p class="arch-map-text">Each component is here because it supports one of four outcomes: data trust, deployment consistency, product speed, or safe AI adoption.</p>
+        </div>
+        <div class="arch-legend">
+          <span class="arch-legend-item"><i class="arch-dot arch-dot-input"></i> Inputs</span>
+          <span class="arch-legend-item"><i class="arch-dot arch-dot-data"></i> Data plane</span>
+          <span class="arch-legend-item"><i class="arch-dot arch-dot-ai"></i> Intelligence</span>
+          <span class="arch-legend-item"><i class="arch-dot arch-dot-infra"></i> Control plane</span>
+        </div>
+      </div>
+
+      <div class="arch-scroller">
+        <div class="arch-system-board">
+          <section class="arch-row arch-row-inputs" data-anim="fade-up">
+            <div class="arch-row-head">
+              <div class="arch-row-index">01</div>
+              <div>
+                <div class="layer-label">Layer 1 · Business inputs</div>
+                <div class="arch-row-title">Raw and heterogeneous by design</div>
+              </div>
+            </div>
+            <div class="nodes arch-row-nodes arch-row-nodes-5">
+              <button type="button" class="anode an-g" data-node="higg" onclick="showNode('higg', this)"><span class="an-layer">Primary data</span><span class="an-name">Higg FEM / FSLM</span><span class="an-sub">Core facility evidence base</span></button>
+              <button type="button" class="anode an-g" data-node="supplier" onclick="showNode('supplier', this)"><span class="an-layer">Operational feeds</span><span class="an-name">Supplier APIs</span><span class="an-sub">Monthly supplier updates</span></button>
+              <button type="button" class="anode an-g" data-node="goblu" onclick="showNode('goblu', this)"><span class="an-layer">Acquisition</span><span class="an-name">GoBlu chemical data</span><span class="an-sub">ZDHC and environmental signals</span></button>
+              <button type="button" class="anode an-g" data-node="docs" onclick="showNode('docs', this)"><span class="an-layer">Compliance evidence</span><span class="an-name">Audits &amp; Certificates</span><span class="an-sub">Unstructured proof for reviews</span></button>
+              <button type="button" class="anode an-g" data-node="lca" onclick="showNode('lca', this)"><span class="an-layer">Reference data</span><span class="an-name">LCA Datasets</span><span class="an-sub">Benchmarks and methodology context</span></button>
+            </div>
+          </section>
+
+          <div class="arch-linkband" aria-hidden="true">
+            <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+              <defs>
+                <marker id="flow-arrow-1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#C41230"/>
+                </marker>
+              </defs>
+              <path id="flow-main-1" class="connector-path connector-main" d="M100 0 L100 44 L500 44 L500 118" marker-end="url(#flow-arrow-1)"/>
+              <path id="flow-1-a" class="connector-path connector-branch" d="M300 0 L300 44 L500 44"/>
+              <path id="flow-1-b" class="connector-path connector-branch" d="M500 0 L500 44"/>
+              <path id="flow-1-c" class="connector-path connector-branch" d="M700 0 L700 44 L500 44"/>
+              <path id="flow-1-d" class="connector-path connector-branch" d="M900 0 L900 44 L500 44"/>
+              <circle class="connector-flow-dot" r="5">
+                <animateMotion dur="2.8s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-main-1"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.3s" begin="0.15s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-1-a"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.15s" begin="0.35s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-1-b"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.45s" begin="0.55s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-1-c"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.6s" begin="0.75s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-1-d"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+
+          <section class="arch-row" data-anim="fade-up" data-delay="1">
+            <div class="arch-row-head">
+              <div class="arch-row-index">02</div>
+              <div>
+                <div class="layer-label">Layer 2 · Ingestion &amp; integrity</div>
+                <div class="arch-row-title">Trust is established before anything moves downstream</div>
+              </div>
+            </div>
+            <div class="nodes arch-row-nodes arch-row-nodes-4">
+              <button type="button" class="anode an-d" data-node="nifi" onclick="showNode('nifi', this)"><span class="an-layer">Document flow</span><span class="an-name">Apache NiFi</span><span class="an-sub">Guaranteed evidence intake</span></button>
+              <button type="button" class="anode an-d" data-node="airbyte" onclick="showNode('airbyte', this)"><span class="an-layer">Structured intake</span><span class="an-name">Airbyte</span><span class="an-sub">Connector coverage with less code</span></button>
+              <button type="button" class="anode an-d" data-node="dbt" onclick="showNode('dbt', this)"><span class="an-layer">Transformation</span><span class="an-name">dbt</span><span class="an-sub">Versioned logic and lineage</span></button>
+              <button type="button" class="anode an-g" data-node="gx" onclick="showNode('gx', this)"><span class="an-layer">Integrity gates</span><span class="an-name">Great Expectations</span><span class="an-sub">Automated quality enforcement</span></button>
+            </div>
+          </section>
+
+          <div class="arch-linkband" aria-hidden="true">
+            <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+              <defs>
+                <marker id="flow-arrow-2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#C41230"/>
+                </marker>
+              </defs>
+              <path id="flow-main-2" class="connector-path connector-main" d="M150 0 L150 46 L500 46 L500 118" marker-end="url(#flow-arrow-2)"/>
+              <path id="flow-2-a" class="connector-path connector-branch" d="M383 0 L383 46 L500 46"/>
+              <path id="flow-2-b" class="connector-path connector-branch" d="M617 0 L617 46 L500 46"/>
+              <path id="flow-2-c" class="connector-path connector-branch" d="M850 0 L850 46 L500 46"/>
+              <circle class="connector-flow-dot" r="5">
+                <animateMotion dur="2.9s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-main-2"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.2s" begin="0.2s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-2-a"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.35s" begin="0.45s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-2-b"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.55s" begin="0.7s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-2-c"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+
+          <section class="arch-row" data-anim="fade-up" data-delay="2">
+            <div class="arch-row-head">
+              <div class="arch-row-index">03</div>
+              <div>
+                <div class="layer-label">Layer 3 · The lakehouse</div>
+                <div class="arch-row-title">One source of truth for storage, schema evolution, and analytics</div>
+              </div>
+            </div>
+            <div class="nodes arch-row-nodes arch-row-nodes-3">
+              <button type="button" class="anode an-v" data-node="minio" onclick="showNode('minio', this)"><span class="an-layer">Storage</span><span class="an-name">MinIO</span><span class="an-sub">Global parity across regions</span></button>
+              <button type="button" class="anode an-v" data-node="iceberg" onclick="showNode('iceberg', this)"><span class="an-layer">Table layer</span><span class="an-name">Apache Iceberg</span><span class="an-sub">Schema evolution and time travel</span></button>
+              <button type="button" class="anode an-v" data-node="trino" onclick="showNode('trino', this)"><span class="an-layer">Query plane</span><span class="an-name">Trino + ClickHouse</span><span class="an-sub">Fast analytics without exports</span></button>
+            </div>
+          </section>
+
+          <div class="arch-linkband" aria-hidden="true">
+            <svg viewBox="0 0 1000 140" preserveAspectRatio="none">
+              <defs>
+                <marker id="flow-arrow-3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#C41230"/>
+                </marker>
+              </defs>
+              <path id="flow-main-3" class="connector-path connector-main" d="M200 0 L200 46 L500 46 L500 138" marker-end="url(#flow-arrow-3)"/>
+              <path id="flow-3-a" class="connector-path connector-branch" d="M500 0 L500 46"/>
+              <path id="flow-3-b" class="connector-path connector-branch" d="M800 0 L800 46 L500 46"/>
+              <circle class="connector-flow-dot" r="5">
+                <animateMotion dur="3s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-main-3"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.25s" begin="0.25s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-3-a"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.5s" begin="0.55s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-3-b"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+
+          <section class="arch-row arch-row-intelligence" data-anim="fade-up" data-delay="3">
+            <div class="arch-row-head">
+              <div class="arch-row-index">04</div>
+              <div>
+                <div class="layer-label">Layer 4 · Intelligence engine</div>
+                <div class="arch-row-title">AI, retrieval, and monitoring run on governed assets only</div>
+              </div>
+            </div>
+            <div class="nodes arch-row-nodes arch-row-nodes-7">
+              <button type="button" class="anode an-a" data-node="dagster" onclick="showNode('dagster', this)"><span class="an-layer">Control</span><span class="an-name">Dagster</span><span class="an-sub">Asset orchestration</span></button>
+              <button type="button" class="anode an-a" data-node="mlflow" onclick="showNode('mlflow', this)"><span class="an-layer">Reproducibility</span><span class="an-name">MLflow</span><span class="an-sub">Model traceability</span></button>
+              <button type="button" class="anode an-a" data-node="hf" onclick="showNode('hf', this)"><span class="an-layer">Embeddings</span><span class="an-name">HuggingFace</span><span class="an-sub">In-house embeddings</span></button>
+              <button type="button" class="anode an-a" data-node="vllm" onclick="showNode('vllm', this)"><span class="an-layer">Inference</span><span class="an-name">vLLM</span><span class="an-sub">Private scalable serving</span></button>
+              <button type="button" class="anode an-r" data-node="vectordb" onclick="showNode('vectordb', this)"><span class="an-layer">Retrieval</span><span class="an-name">Qdrant</span><span class="an-sub">Searchable evidence layer</span></button>
+              <button type="button" class="anode an-r" data-node="langchain" onclick="showNode('langchain', this)"><span class="an-layer">Grounded AI</span><span class="an-name">LangChain</span><span class="an-sub">Cited answer chains</span></button>
+              <button type="button" class="anode an-g" data-node="drift" onclick="showNode('drift', this)"><span class="an-layer">Drift monitoring</span><span class="an-name">Evidently AI</span><span class="an-sub">Compliance guardrails</span></button>
+            </div>
+          </section>
+
+          <div class="arch-linkband" aria-hidden="true">
+            <svg viewBox="0 0 1000 120" preserveAspectRatio="none">
+              <defs>
+                <marker id="flow-arrow-4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#C41230"/>
+                </marker>
+              </defs>
+              <path id="flow-main-4" class="connector-path connector-main" d="M72 0 L72 44 L500 44 L500 118" marker-end="url(#flow-arrow-4)"/>
+              <path id="flow-4-a" class="connector-path connector-branch" d="M214 0 L214 44 L500 44"/>
+              <path id="flow-4-b" class="connector-path connector-branch" d="M357 0 L357 44 L500 44"/>
+              <path id="flow-4-c" class="connector-path connector-branch" d="M500 0 L500 44"/>
+              <path id="flow-4-d" class="connector-path connector-branch" d="M643 0 L643 44 L500 44"/>
+              <path id="flow-4-e" class="connector-path connector-branch" d="M786 0 L786 44 L500 44"/>
+              <path id="flow-4-f" class="connector-path connector-branch" d="M928 0 L928 44 L500 44"/>
+              <circle class="connector-flow-dot" r="5">
+                <animateMotion dur="3.1s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-main-4"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5"><animateMotion dur="2.1s" begin="0.1s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-4-a"/></animateMotion></circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5"><animateMotion dur="2.2s" begin="0.25s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-4-b"/></animateMotion></circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5"><animateMotion dur="2.05s" begin="0.4s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-4-c"/></animateMotion></circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5"><animateMotion dur="2.3s" begin="0.55s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-4-d"/></animateMotion></circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5"><animateMotion dur="2.45s" begin="0.7s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-4-e"/></animateMotion></circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5"><animateMotion dur="2.6s" begin="0.85s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-4-f"/></animateMotion></circle>
+            </svg>
+          </div>
+
+          <section class="arch-row arch-row-backbone" data-anim="fade-up" data-delay="4">
+            <div class="arch-row-head">
+              <div class="arch-row-index">05</div>
+              <div>
+                <div class="layer-label">Layer 5 · Deployment backbone</div>
+                <div class="arch-row-title">Shared runtime, delivery, and governance underneath the full stack</div>
+              </div>
+            </div>
+            <div class="nodes arch-row-nodes arch-row-nodes-4">
+              <button type="button" class="anode an-s" data-node="k8s" onclick="showNode('k8s', this)"><span class="an-layer">Runtime</span><span class="an-name">Kubernetes</span><span class="an-sub">Cross-region execution</span></button>
+              <button type="button" class="anode an-s" data-node="terraform" onclick="showNode('terraform', this)"><span class="an-layer">Infrastructure as code</span><span class="an-name">Terraform</span><span class="an-sub">Reproducible environments</span></button>
+              <button type="button" class="anode an-s" data-node="cicd" onclick="showNode('cicd', this)"><span class="an-layer">Delivery</span><span class="an-name">GitHub Actions</span><span class="an-sub">Controlled releases</span></button>
+              <button type="button" class="anode an-s" data-node="governance" onclick="showNode('governance', this)"><span class="an-layer">Security &amp; catalog</span><span class="an-name">Vault + DataHub</span><span class="an-sub">Secrets and lineage</span></button>
+            </div>
+          </section>
+
+          <div class="arch-linkband" aria-hidden="true">
+            <svg viewBox="0 0 1000 130" preserveAspectRatio="none">
+              <defs>
+                <marker id="flow-arrow-5" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#C41230"/>
+                </marker>
+              </defs>
+              <path id="flow-main-5" class="connector-path connector-main" d="M150 0 L150 46 L500 46 L500 128" marker-end="url(#flow-arrow-5)"/>
+              <path id="flow-5-a" class="connector-path connector-branch" d="M383 0 L383 46 L500 46"/>
+              <path id="flow-5-b" class="connector-path connector-branch" d="M617 0 L617 46 L500 46"/>
+              <path id="flow-5-c" class="connector-path connector-branch" d="M850 0 L850 46 L500 46"/>
+              <circle class="connector-flow-dot" r="5">
+                <animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-main-5"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.2s" begin="0.2s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-5-a"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.4s" begin="0.45s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-5-b"/>
+                </animateMotion>
+              </circle>
+              <circle class="connector-flow-dot connector-flow-dot-sm" r="3.5">
+                <animateMotion dur="2.6s" begin="0.7s" repeatCount="indefinite" rotate="auto">
+                  <mpath href="#flow-5-c"/>
+                </animateMotion>
+              </circle>
+            </svg>
+          </div>
+
+          <section class="arch-row arch-row-outcomes" data-anim="fade-up" data-delay="5">
+            <div class="arch-row-head">
+              <div class="arch-row-index">06</div>
+              <div>
+                <div class="layer-label">Layer 6 · Business outcomes</div>
+                <div class="arch-row-title">The system compounds into product trust, speed, and regulatory confidence</div>
+              </div>
+            </div>
+            <div class="nodes arch-row-nodes arch-row-nodes-4 arch-outcomes-grid">
+              <button type="button" class="anode an-out" data-node="output" onclick="showNode('output', this)"><span class="an-layer">Product surface</span><span class="an-name">Insights Hub</span><span class="an-sub">Sub-second ESG analytics</span></button>
+              <button type="button" class="anode an-out" data-node="output" onclick="showNode('output', this)"><span class="an-layer">Product surface</span><span class="an-name">Worldly Assistant</span><span class="an-sub">Grounded AI guidance</span></button>
+              <button type="button" class="anode an-out" data-node="output" onclick="showNode('output', this)"><span class="an-layer">Regulatory surface</span><span class="an-name">CSRD Reports</span><span class="an-sub">Audit-ready reproducibility</span></button>
+              <button type="button" class="anode an-out" data-node="output" onclick="showNode('output', this)"><span class="an-layer">Product surface</span><span class="an-name">Impact Calculator</span><span class="an-sub">Traceable Scope 3 outputs</span></button>
+            </div>
+          </section>
+        </div>
+      </div>
+      <p class="diagram-note">Every node is connected through animated flow rails. Select any component to inspect the implementation rationale.</p>
+    </div>
+
+    <!-- RIGHT: DETAIL PANEL -->
+    <div class="det-panel">
+      <div class="det-empty" id="det-empty">
+        <div style="font-size:22px;margin-bottom:10px;opacity:0.25">◈</div>
+        Click any component<br>to see what it is, why it wins,<br>and the business outcome it protects.
+      </div>
+
+      <!-- ── NODE DETAIL CARDS ── -->
+
+      <!-- HIGG -->
+      <div class="det-card" id="card-higg">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--g-bg);border-color:var(--g-bdr);color:var(--g2)">① Data source</div>
+          <div class="det-name">Higg FEM / FSLM Assessments</div>
+          <div class="det-tag">Core business input and the foundation for downstream reliability</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">What it is</div>
+            <p class="dsec-text">The Higg Facility Environmental Module (FEM) collects quantitative data on energy, water, waste, chemicals, and GHG from factories. The FSLM covers social and labor. These are direct operating inputs, which is exactly why the platform needs strong data handling before downstream reporting or AI can be trusted.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">The infrastructure problem</div>
+            <p class="dsec-text">Primary assessment data, operational updates, and supporting evidence create the kind of input complexity that can quietly break reporting and AI. This is why I would start with a governed ingestion path and a reproducible storage model before trying to expand downstream intelligence.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">Core product input</span><span class="biz-pill biz-g">Regulatory workflows</span><span class="biz-pill biz-g">Platform trust</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOBLU -->
+      <div class="det-card" id="card-goblu">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--g-bg);border-color:var(--g-bdr);color:var(--g2)">① Acquisition data</div>
+          <div class="det-name">GoBlu  Chemical &amp; Environmental Data</div>
+          <div class="det-tag">Worldly's acquired chemical management platform  ZDHC records, environmental signals, facility chemical inventories</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">What GoBlu adds to the data model</div>
+            <p class="dsec-text">GoBlu's acquisition brings structured chemical inventory data  ZDHC Gateway conformance records, hazardous substance declarations, and facility-level environmental discharge signals  into the Worldly data model. This is <strong>a different schema, a different ingestion pattern, and a different compliance context</strong> from Higg FEM. Merging it into the lakehouse without breaking existing dbt lineage requires schema evolution support. Iceberg's in-place column additions handle this without a table rewrite.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">The infrastructure challenge</div>
+            <p class="dsec-text">Acquisition data arrives with its own historical schema, ID conventions, and update cadence. The ingestion layer needs to map GoBlu facility IDs to Worldly's canonical facility records without data loss  and Great Expectations needs new contract definitions for chemical record completeness before any GoBlu data reaches a CSRD report or product score. This is a data quality problem before it's an engineering problem.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">Chemical compliance signals</span><span class="biz-pill biz-g">CSRD scope expansion</span><span class="biz-pill biz-r">ZDHC gateway coverage</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUPPLIER -->
+      <div class="det-card" id="card-supplier">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--g-bg);border-color:var(--g-bdr);color:var(--g2)">① Data source</div>
+          <div class="det-name">Supplier APIs &amp; Operational Feeds</div>
+          <div class="det-tag">Multi-tier supply chain data from tier 1 through tier 4</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">What it includes</div>
+            <p class="dsec-text">Beyond Higg assessments: production volume data, material provenance, chemical inventories, third-party audit results, and carbon intensity measurements. This kind of multi-tier data footprint is one reason I would keep the ingestion and governance model explicit rather than ad hoc.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">The China constraint</div>
+            <p class="dsec-text">Regional data handling rules can create situations where supplier or factory data should not leave a specific jurisdiction. I would treat that as a product and infrastructure constraint early, not as a deployment detail to clean up later.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-r">China compliance</span><span class="biz-pill biz-g">Multi-tier visibility</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DOCS -->
+      <div class="det-card" id="card-docs">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--g-bg);border-color:var(--g-bdr);color:var(--g2)">① Data source</div>
+          <div class="det-name">Audit Reports &amp; Certificates</div>
+          <div class="det-tag">Unstructured documents  the hardest data to process, the most valuable for compliance</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">What it includes</div>
+            <p class="dsec-text">Third-party audit reports, chemical safety data sheets, Bluesign and ZDHC certifications, supplier code of conduct sign-offs. These are <strong>PDFs and scanned documents</strong>  no structured schema, inconsistent formats, multi-language. They contain some of the most important compliance signals.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why this is hard</div>
+            <p class="dsec-text">You can't run a SQL query over a scanned audit PDF. These documents need extraction, classification, and linking to the structured facility records before they're useful. This is where NiFi + document parsing (Unstructured.io or similar) feeds the lakehouse with unstructured content.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">CSRD evidence</span><span class="biz-pill biz-v">AI search target</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LCA -->
+      <div class="det-card" id="card-lca">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--g-bg);border-color:var(--g-bdr);color:var(--g2)">① Data source</div>
+          <div class="det-name">LCA Datasets &amp; Regulatory Reference</div>
+          <div class="det-tag">Life-cycle assessment data that powers the Product Impact Calculator</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">What it is</div>
+            <p class="dsec-text">Life Cycle Assessment data quantifies environmental impact across a material's entire production chain  from raw extraction through processing, dyeing, and transport. The Higg Materials Sustainability Index (MSI) contains LCA data for hundreds of materials. Combined with facility performance data, this powers product-level Scope 3 carbon calculations.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">The data join challenge</div>
+            <p class="dsec-text">LCA data (structured, numeric) must join with facility assessment data (semi-structured) and product BOM specs (hierarchical) to produce a product-level impact score. This multi-source join across different data models is exactly what <strong>dbt handles in the transformation layer</strong>.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">Product Impact Calculator</span><span class="biz-pill biz-g">PEFCR compliance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NIFI -->
+      <div class="det-card" id="card-nifi">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--d-bg);border-color:var(--d-bdr);color:#67e8f9">② Ingestion</div>
+          <div class="det-name">Apache NiFi</div>
+          <div class="det-tag">Guaranteed-delivery document ingestion for compliance-sensitive evidence</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would consider it</div>
+            <p class="dsec-text">For document-heavy evidence flows, I would prefer a tool that treats delivery guarantees, retries, and provenance as first-class concerns rather than afterthoughts. That matters more here than having the most fashionable ingestion stack.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why NiFi for Worldly</div>
+            <p class="dsec-text">NiFi is designed for <strong>guaranteed-delivery, document-oriented dataflow</strong> with explicit failure handling. Audit PDFs, certificates, and supplier documents need to arrive in the lakehouse reliably  a dropped document that doesn't generate an error is worse than a visible failure. NiFi routes failures to dead-letter queues with full provenance. You know exactly what failed, why, and what the data was.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-d">No silent data loss</span><span class="biz-pill biz-d">Full audit trail</span><span class="biz-pill biz-g">Compliance-grade ingestion</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AIRBYTE -->
+      <div class="det-card" id="card-airbyte">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--d-bg);border-color:var(--d-bdr);color:#67e8f9">② Ingestion</div>
+          <div class="det-name">Airbyte</div>
+          <div class="det-tag">Open connector layer for broad integration coverage without bespoke maintenance everywhere</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would consider it</div>
+            <p class="dsec-text">I would consider Airbyte when the team needs wide connector coverage without turning integrations into a custom engineering tax. The appeal is less bespoke code and a more repeatable ingestion model.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text">Airbyte gives Worldly <strong>faster integration coverage with less bespoke connector maintenance</strong>. For regulatory and partner APIs, that means shorter time-to-value and lower operational drag. The open-source version self-hosts on Kubernetes, which preserves China compatibility and avoids pushing sensitive supplier data through third-party integration infrastructure.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-d">Faster integration</span><span class="biz-pill biz-d">Maintained connectors</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DBT -->
+      <div class="det-card" id="card-dbt">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--d-bg);border-color:var(--d-bdr);color:#67e8f9">② Transform</div>
+          <div class="det-name">dbt  Data Build Tool</div>
+          <div class="det-tag">Version-controlled transformation layer for reviewable, auditable business logic</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would consider it</div>
+            <p class="dsec-text">I would prefer a transformation layer that keeps logic versioned, reviewable, and visible to the broader team. The main value is a cleaner operating model for shared analytical logic.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text"><strong>Auditor-ready lineage</strong> is the real reason to use dbt here. Every CSRD figure becomes traceable to its raw source, every transformation is version-controlled, and every logic change is reviewable. When an auditor asks how a number was produced, the answer is a model lineage path, not institutional memory.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">Auditor-ready lineage</span><span class="biz-pill biz-g">Version-controlled logic</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GREAT EXPECTATIONS -->
+      <div class="det-card" id="card-gx">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--d-bg);border-color:var(--d-bdr);color:#67e8f9">② Validation</div>
+          <div class="det-name">Great Expectations</div>
+          <div class="det-tag">Data quality gates that keep bad inputs out of downstream systems</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would start here</div>
+            <p class="dsec-text">I would rather put effort into explicit quality contracts than debug downstream surprises later. Validation rules, quarantines, and visible failures create a much better operating model than quietly accepting bad data and discovering the damage in reporting or ML outputs.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text"><strong>Automated integrity gates</strong> matter more than marginal model gains. If corrupted ESG inputs reach reporting or ML pipelines, Worldly risks bad scores, broken trust, and downstream regulatory exposure for customers. Great Expectations lets the platform quarantine bad batches before they contaminate the source of truth.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">Prevents bad compliance outputs</span><span class="biz-pill biz-d">Quarantine vs silent fail</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MINIO -->
+      <div class="det-card" id="card-minio">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--v-bg);border-color:var(--v-bdr);color:var(--v)">③ Storage</div>
+          <div class="det-name">MinIO</div>
+          <div class="det-tag">S3-compatible object storage  recommended for sovereignty and portability</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would bias this way</div>
+            <p class="dsec-text">I would choose MinIO when portability and deployment symmetry matter more than maximizing convenience inside one cloud. The point is to preserve one storage pattern across regions and avoid turning the data layer into a long-term constraint.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text"><strong>Global parity</strong> is the real benefit. MinIO is S3-compatible, open-source, and self-hostable on any cloud, so the same application pattern can run in the US, EU, and China without forking the storage layer. That directly supports sovereign data handling while keeping the engineering model unified.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-r">China data sovereignty</span><span class="biz-pill biz-v">Single codebase, all regions</span><span class="biz-pill biz-a">No S3 lock-in</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ICEBERG -->
+      <div class="det-card" id="card-iceberg">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--v-bg);border-color:var(--v-bdr);color:var(--v)">③ Table format</div>
+          <div class="det-name">Apache Iceberg</div>
+          <div class="det-tag">Open table format with schema evolution and time travel  recommended for long-lived analytical data</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would bias this way</div>
+            <p class="dsec-text">I would choose Iceberg when the platform needs to absorb schema change without turning every update into a migration project. The value is not novelty. It is a calmer operating model for long-lived analytical data.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text"><strong>Future-proof schema</strong> and <strong>time travel</strong> are the reasons this belongs in Worldly's core. Higg methodologies change annually, and audit questions often arrive months later. Iceberg handles evolving schemas without painful migrations and lets Worldly reproduce exactly what a dataset looked like on a prior date when an auditor or customer needs proof.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-g">Annual methodology updates without migrations</span><span class="biz-pill biz-g">Time travel for audits</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TRINO -->
+      <div class="det-card" id="card-trino">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--v-bg);border-color:var(--v-bdr);color:var(--v)">③ Query</div>
+          <div class="det-name">Trino + ClickHouse</div>
+          <div class="det-tag">Federated query plane and sub-second analytics across the ESG lakehouse</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why two engines, not one</div>
+            <p class="dsec-text">Trino and ClickHouse solve different problems. <strong>Trino federates</strong>  it joins across Iceberg tables, PostgreSQL operational DB, and external sources without moving data, which eliminates the fragile export pipelines Worldly currently runs. <strong>ClickHouse aggregates</strong>  it delivers sub-second GROUP BY queries over billions of rows for the Insights Hub. My PostgreSQL optimisation work (800ms → 200ms via EXPLAIN ANALYZE, covering indexes, N+1 elimination at RoundTechSquare) applies directly to the query planning principles both engines use.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text">The value here is <strong>federated insight without export sprawl</strong>. Trino joins facility performance, LCA, and product data across systems without creating duplicate pipelines just to answer one question. ClickHouse supplies the sub-second aggregation layer the Insights Hub needs for an executive-grade analytics experience.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-v">Product Impact Calculator</span><span class="biz-pill biz-d">Real-time Insights Hub</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAGSTER -->
+      <div class="det-card" id="card-dagster">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--a-bg);border-color:var(--a-bdr);color:#fcd34d">④ Orchestration</div>
+          <div class="det-name">Dagster</div>
+          <div class="det-tag">Asset-based orchestration for better visibility into what changed and what needs to run</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would choose this pattern</div>
+            <p class="dsec-text">I would prefer orchestration that is aware of data assets, not just scheduled tasks. That makes it easier for teams to see what changed, what is stale, and what needs to be recomputed when upstream data or logic moves.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why Dagster over Airflow</div>
+            <p class="dsec-text">Airflow schedules tasks. Dagster tracks <strong>assets</strong>. That distinction is critical for Worldly: when a raw Higg assessment batch updates, Dagster automatically surfaces which downstream dbt models, feature tables, and model scores are stale and need recomputation. With Airflow you'd wire that lineage manually and maintain it every time the schema changes. For a compliance platform where audit reproducibility is a product requirement, asset-aware orchestration is not a preference  it's the right architecture.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-a">Automatic retry on failure</span><span class="biz-pill biz-a">Native data lineage</span><span class="biz-pill biz-g">CSRD reproducibility built in</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MLFLOW -->
+      <div class="det-card" id="card-mlflow">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--a-bg);border-color:var(--a-bdr);color:#fcd34d">④ Experiments</div>
+          <div class="det-name">MLflow</div>
+          <div class="det-tag">Model tracking and registry for reproducibility and controlled change</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would insist on it</div>
+            <p class="dsec-text">If model behavior influences product or reporting workflows, I would want every promoted model to be traceable, reviewable, and easy to roll back. That is less about ML sophistication and more about dependable product operations.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why this matters for regulatory outputs</div>
+            <p class="dsec-text">When Worldly's Product Impact Calculator produces a Scope 3 estimate that appears in a CSRD report, that figure must be <strong>reproducible and explainable months later</strong>. MLflow's model registry logs the exact model version, training data hash, hyperparameters, and environment for every production model. If an auditor questions a figure 12 months later, the answer exists in MLflow.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-a">Audit-ready model versions</span><span class="biz-pill biz-a">Reproducible experiments</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HUGGINGFACE -->
+      <div class="det-card" id="card-hf">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--a-bg);border-color:var(--a-bdr);color:#fcd34d">④ Embeddings</div>
+          <div class="det-name">HuggingFace Transformers</div>
+          <div class="det-tag">Self-hosted embedding layer for private retrieval and search workflows</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would keep this self-hosted</div>
+            <p class="dsec-text">For private retrieval workflows, I would prefer self-hosted embedding models so the team can keep sensitive data in-house and iterate on relevance without depending on an external API for every change.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why self-hosted matters</div>
+            <p class="dsec-text">Supplier chemical inventories, social audit data, and facility-level business performance cannot be sent to a third-party embedding API. Self-hosted models via HuggingFace keep all data within Worldly's infrastructure  contractually clean and China-region compatible.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-a">Data stays in-house</span><span class="biz-pill biz-r">China compatible</span><span class="biz-pill biz-g">No API cost at scale</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VLLM -->
+      <div class="det-card" id="card-vllm">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--a-bg);border-color:var(--a-bdr);color:#fcd34d">④ Inference</div>
+          <div class="det-name">vLLM</div>
+          <div class="det-tag">Self-hosted high-concurrency LLM serving  China-compatible, zero data egress</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why vLLM over SageMaker or TGI</div>
+            <p class="dsec-text">I would choose an inference layer like vLLM when the team needs private serving, reasonable concurrency, and the option to run outside a single cloud vendor's managed path. The main value is operational flexibility, not simply raw model throughput.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text">vLLM is about <strong>private scale</strong>. It supports high-concurrency AI serving while keeping supplier and facility data inside Worldly-controlled infrastructure. That combination matters because the assistant must be both broadly usable during peak season and acceptable for sovereign or contract-sensitive data.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-a">Private model serving</span><span class="biz-pill biz-r">Region-flexible inference</span><span class="biz-pill biz-g">No data leaves infra</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VECTOR DB -->
+      <div class="det-card" id="card-vectordb">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--r-bg);border-color:var(--r-bdr);color:#fda4af">⑤ RAG</div>
+          <div class="det-name">Vector DB  Qdrant</div>
+          <div class="det-tag">Vector search for retrieval workflows that need scoped, relevant context</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would use it carefully</div>
+            <p class="dsec-text">I would introduce vector search only when there is a clear retrieval use case that benefits from it. The value is not in having a vector database. The value is in grounding search and AI workflows with better context and clearer scope.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why Qdrant specifically</div>
+            <p class="dsec-text">Qdrant is open-source, self-hostable, and has strong multi-tenancy for isolating vector spaces by application (Worldly Assistant, product scoring, supplier risk) without running separate instances. It supports <strong>metadata filtering</strong> alongside vector search  critical for scoping "find relevant Higg guidance for FEM section 3 questions" vs "find methodology text for chemical management." I'd evaluate Qdrant vs Milvus before committing  either would work.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-v">Powers Worldly Assistant</span><span class="biz-pill biz-r">Multi-region deployable</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LANGCHAIN -->
+      <div class="det-card" id="card-langchain">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--r-bg);border-color:var(--r-bdr);color:#fda4af">⑤ RAG</div>
+          <div class="det-name">LangChain</div>
+          <div class="det-tag">Retrieval orchestration for use cases that need grounded, cited answers</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would use this pattern</div>
+            <p class="dsec-text">If an assistant is going to be useful in a product like this, I would want it grounded in retrieved context with explicit instructions around source use and answer boundaries. That reduces the odds of a fluent but unsafe answer entering a sensitive workflow.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">What the Worldly Assistant needs</div>
+            <p class="dsec-text">A user asking for guidance needs a response grounded in the right policy or methodology section, not a plausible improvisation. I would treat that as a product safety problem first and a model problem second.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-r">Worldly Assistant backbone</span><span class="biz-pill biz-g">No hallucinated compliance guidance</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRIFT -->
+      <div class="det-card" id="card-drift">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--r-bg);border-color:var(--r-bdr);color:#fda4af">⑤ Monitoring</div>
+          <div class="det-name">Evidently AI  Drift Monitoring</div>
+          <div class="det-tag">Production ML monitoring for compliance-facing model outputs</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why Evidently AI specifically</div>
+            <p class="dsec-text">I would favor monitoring that stays close to the platform, plugs into existing orchestration, and makes drift visible before it becomes a product issue. The point is operational awareness, not another standalone dashboard.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">What gets monitored and why it's regulatory</div>
+            <p class="dsec-text">The Product Impact Calculator's Scope 3 estimates appear in <strong>legally-mandated CSRD disclosures</strong>. I monitor input feature drift separately from prediction drift  the distinction matters for diagnosis: stable features with drifting predictions signals a model failure; both drifting signals an upstream data distribution shift. Either fires an alert before an inaccurate figure reaches a regulatory report. That's legal liability prevention, not product quality.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-r">Prevents inaccurate CSRD filings</span><span class="biz-pill biz-g">Integrated with Dagster checks</span><span class="biz-pill biz-g">Zero data egress</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- K8S -->
+      <div class="det-card" id="card-k8s">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--s-bg);border-color:var(--s-bdr);color:#94a3b8">⑥ Infra</div>
+          <div class="det-name">Kubernetes  Multi-Region</div>
+          <div class="det-tag">A shared runtime model that keeps deployment behavior consistent across environments</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would keep the runtime consistent</div>
+            <p class="dsec-text">I would rather give teams one deployment model they can learn well than several environment-specific ones they have to keep reinterpreting. Shared runtime behavior reduces operational surprise and makes delivery calmer.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text"><strong>Global parity</strong> is the key outcome. The same Kubernetes deployment model can be adapted for US, EU, and China environments with region-specific configuration rather than separate codebases. That keeps operational muscle memory unified while respecting data residency constraints.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-s">Auto-scales at assessment peaks</span><span class="biz-pill biz-r">China-region compatible</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TERRAFORM -->
+      <div class="det-card" id="card-terraform">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--s-bg);border-color:var(--s-bdr);color:#94a3b8">⑥ IaC</div>
+          <div class="det-name">Terraform</div>
+          <div class="det-tag">Infrastructure as code so environments are reviewable, reproducible, and less person-dependent</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would insist on it</div>
+            <p class="dsec-text">I would want infrastructure changes to be reviewed like code, repeated safely across environments, and understandable by more than one person. That makes scaling the team easier and lowers operational risk.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text">Terraform makes <strong>global consistency auditable</strong>. The same baseline can be applied across providers, which reduces regional drift and makes security or compliance hardening repeatable. For a company operating across sovereign boundaries, that consistency is an executive control advantage, not just an engineering convenience.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-s">Audit trail of all infra changes</span><span class="biz-pill biz-s">Reproducible environments</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CICD -->
+      <div class="det-card" id="card-cicd">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--s-bg);border-color:var(--s-bdr);color:#94a3b8">⑥ CI/CD</div>
+          <div class="det-name">GitHub Actions  ML Pipeline CI/CD</div>
+          <div class="det-tag">Automated deployment path for safer, more routine change management</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why I would put this in early</div>
+            <p class="dsec-text">I would make change safer before making it faster. Once tests, deploy checks, and rollback expectations are part of the normal path, the team can move with much more confidence.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Why it wins</div>
+            <p class="dsec-text">The point of CI/CD here is <strong>controlled change</strong>. Every model or transformation update can be tested, benchmarked, and phased into production with rollback protection. That lowers the odds of a silent regression reaching a customer-facing report or scoring workflow.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-s">Model regressions caught pre-prod</span><span class="biz-pill biz-g">Safer releases</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTPUT -->
+      <div class="det-card" id="card-output">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--g-bg);border-color:var(--g-bdr);color:var(--g2)">⑦ Output</div>
+          <div class="det-name">Platform Products</div>
+          <div class="det-tag">What the entire infrastructure exists to power</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Insights Hub</div>
+            <p class="dsec-text">Interactive ESG analytics with <strong>real-time decision support</strong> for brands and internal teams. Powered by ClickHouse over the Iceberg lakehouse for sub-second responses on complex queries.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Worldly Assistant</div>
+            <p class="dsec-text">AI guidance for assessment workflows should be grounded, bounded, and easy to audit. I would treat this as a product capability that earns its way in once the underlying retrieval and governance path is solid.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">CSRD / Compliance Reports</div>
+            <p class="dsec-text">Audit-ready regulatory reporting. Powered by <strong>dbt lineage plus Iceberg time travel</strong> so every figure stays traceable, reproducible, and defensible months later.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Product Impact Calculator</div>
+            <p class="dsec-text">Product-level impact workflows should sit on top of clean joins, reproducible model paths, and clear ownership boundaries. I would only scale this once those foundations are in place.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- GOVERNANCE -->
+      <div class="det-card" id="card-governance">
+        <div class="det-hdr">
+          <div class="det-badge" style="background:var(--s-bg);border-color:var(--s-bdr);color:#94a3b8">⑥ Security</div>
+          <div class="det-name">HashiCorp Vault + Apache DataHub</div>
+          <div class="det-tag">Secrets management, column-level access control, and data lineage catalog</div>
+        </div>
+        <div class="det-body">
+          <div class="dsec"><div class="dsec-title">Why governance is a first-class component</div>
+            <p class="dsec-text">Security, governance, and versioning should be designed into the platform rather than layered on later. <strong>Vault</strong> centralizes secrets, while access controls keep sensitive operational data separate from broader analytical use.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">DataHub as the data catalog</div>
+            <p class="dsec-text"><strong>Apache DataHub</strong> provides a searchable lineage catalog across all Iceberg tables, dbt transformations, and ML model inputs. When an auditor asks "where did this CSRD figure come from?", the answer is a DataHub lineage graph  not a tribal knowledge walkthrough. It also enforces data ownership, tagging (PII, sovereign, restricted), and access request workflows across the full lakehouse.</p>
+          </div>
+          <div class="dsec"><div class="dsec-title">Business value</div>
+            <div><span class="biz-pill biz-s">Zero hardcoded credentials</span><span class="biz-pill biz-s">Column-level ACLs on Trino</span><span class="biz-pill biz-g">Auditor-ready lineage catalog</span><span class="biz-pill biz-r">PIPL/GDPR data tagging</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- det-panel -->
+  </div><!-- arch-wrap -->
+
+</div><!-- content -->
+</main>
+<script>
+function showNode(id, trigger) {
+  const empty = document.getElementById('det-empty');
+  const card = document.getElementById('card-' + id);
+  if (!card) return;
+
+  if (empty) empty.style.display = 'none';
+  document.querySelectorAll('.det-card').forEach(function (c) { c.classList.remove('show'); });
+  document.querySelectorAll('.anode').forEach(function (n) {
+    n.classList.remove('selected');
+    n.setAttribute('aria-pressed', 'false');
+  });
+
+  card.classList.add('show');
+  if (trigger) {
+    trigger.classList.add('selected');
+    trigger.setAttribute('aria-pressed', 'true');
+  }
+}
+
+window.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.arch-system-board .anode').forEach(function (node) {
+    node.setAttribute('aria-pressed', 'false');
+  });
+
+  var firstNode = document.querySelector('.arch-system-board .anode[data-node="iceberg"]');
+  if (firstNode) showNode(firstNode.getAttribute('data-node'), firstNode);
+});
+</script>
+<script src="animations.js"></script>
+</body>
+</html>

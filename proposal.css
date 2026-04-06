@@ -581,6 +581,7 @@ body.overview-page .insight-text{
   .topnav-inner{padding:0 24px}
   .topnav-sub,.topnav-divider,.topnav-name{display:none}
   .tnl-num{display:none}
+  .topnav-brand{flex:1;min-width:0}
   .page-main .cover,.page-main .sec-wrap,.page-main .content,
   .page-main .page-closing,.page-main .page-closing > div,
   .section-index{padding-left:24px;padding-right:24px}
@@ -625,18 +626,21 @@ body.overview-page .insight-text{
   .topnav{overflow:visible}
   .topnav-inner{
     height:auto;
-    min-height:72px;
+    min-height:64px;
     flex-wrap:wrap;
     align-items:center;
-    gap:10px 12px;
+    gap:8px 10px;
     padding-top:10px;
     padding-bottom:10px;
   }
-  .topnav-brand{min-width:0}
+  .topnav-brand{
+    min-width:0;
+    flex:1 1 100%;
+  }
   .topnav-title{font-size:15px}
   .topnav-links{
     display:flex;
-    order:3;
+    order:2;
     width:100%;
     gap:8px;
     overflow-x:auto;
@@ -654,14 +658,7 @@ body.overview-page .insight-text{
     border:1px solid var(--border);
     background:rgba(255,255,255,0.88);
   }
-  .topnav-cta{
-    margin-left:auto;
-    gap:8px;
-  }
-  .topnav-btn{
-    padding:10px 14px;
-    font-size:13px;
-  }
+  .topnav-cta{display:none}
 }
 
 /* ══════════════════════════════════════════

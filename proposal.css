@@ -1011,17 +1011,18 @@ body.architecture-page .biz-pill{font-family:'Inter',sans-serif;font-size:11px;p
 .arch-row-nodes-3{grid-template-columns:repeat(3,minmax(0,1fr))}
 .arch-row-nodes-7{grid-template-columns:repeat(7,minmax(0,1fr))}
 .arch-linkband{
-  height:14px;display:flex;align-items:center;justify-content:center;position:relative;
+  height:30px;display:flex;align-items:center;justify-content:center;position:relative;
+  margin:8px 0;
 }
 .arch-linkband svg{width:100%;height:100%;display:block;overflow:visible}
 .connector-path{
-  fill:none;stroke:rgba(196,18,48,0.34);stroke-width:2.25;stroke-linecap:round;stroke-linejoin:round;
-  stroke-dasharray:10 12;
+  fill:none;stroke:rgba(15,23,42,0.46);stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;
+  stroke-dasharray:1 11;
   animation:connector-flow 16s linear infinite;
-  filter:drop-shadow(0 0 8px rgba(196,18,48,0.12));
+  filter:drop-shadow(0 0 6px rgba(15,23,42,0.08));
 }
-.connector-main{stroke:rgba(196,18,48,0.46)}
-.connector-branch{stroke:rgba(196,18,48,0.24)}
+.connector-main{stroke:rgba(15,23,42,0.62)}
+.connector-branch{stroke:rgba(15,23,42,0.4)}
 .connector-flow-dot{
   fill:#C41230;
   filter:drop-shadow(0 0 10px rgba(196,18,48,0.45));

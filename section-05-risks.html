@@ -73,8 +73,8 @@
 </div>
 <div class="sec-wrap" data-anim="fade-up">
   <div class="sec-num">05</div>
-  <h2>How I would <span class="g">reduce delivery risk</span></h2>
-  <p class="sec-sub">A strong value proposition is not just what I would build. It is how I would keep the work understandable, reversible, and team-friendly while it is being built.</p>
+  <h2>How I would <span class="g">keep execution under control</span></h2>
+  <p class="sec-sub">The strongest signal here is not ambition. It is control: clear problem framing, visible tradeoffs, documented decisions, and an operating model that makes the work understandable and reversible.</p>
 </div>
 <div class="content">
 
@@ -93,7 +93,7 @@
       <div class="risk-cell">At this scale, incomplete records, schema variation, and source inconsistency are normal. Quality assumptions should be tested before downstream systems depend on them.</div>
       <div class="risk-cell">
         <div class="risk-mitigation-title">Already mitigated</div>
-        Phase 1 is audit-first. Data contracts are defined before quality gates are enforced, so bad data fails early.
+        Phase 1 is audit-first. Data contracts are defined before quality gates are enforced, so bad data fails early instead of leaking downstream.
       </div>
     </div>
 
@@ -105,7 +105,7 @@
       <div class="risk-cell">Acquisition data often arrives with undocumented schema quirks, legacy identifiers, and records that do not align cleanly with the host platform.</div>
       <div class="risk-cell">
         <div class="risk-mitigation-title">Already mitigated</div>
-        GoBlu is isolated as a Phase 1 source track. Delay there should not block the broader MLOps foundation.
+        GoBlu is isolated as a Phase 1 source track. Delay there should not block the broader operating foundation.
       </div>
     </div>
 
@@ -117,7 +117,7 @@
       <div class="risk-cell">A greenfield platform owned by one person can become infrastructure only that person understands and can operate.</div>
       <div class="risk-cell">
         <div class="risk-mitigation-title">Explicit counter-design</div>
-        Everything is defined in Terraform, Dagster, dbt, CI/CD, and runbooks. The target state is a platform the team can operate, not a system one person guards.
+        Everything is defined through IaC, pipelines, CI/CD, and runbooks. The target state is a platform the team can operate, not a system one person guards.
       </div>
     </div>
 
@@ -129,7 +129,7 @@
       <div class="risk-cell">PIPL and related localization requirements continue to evolve. That can change what is operationally or legally acceptable.</div>
       <div class="risk-cell">
         <div class="risk-mitigation-title">Already mitigated by architecture</div>
-        The China data plane stays self-hosted and portable across Alibaba Cloud and Huawei Cloud. That reduces dependency on one vendor posture.
+        The China data plane stays self-hosted and portable across Alibaba Cloud and Huawei Cloud. That reduces dependence on one vendor posture.
       </div>
     </div>
 
@@ -147,19 +147,19 @@
   </div>
 
   <div class="commit-box" data-anim="pop">
-    <div class="commit-label">How I would show up in the role</div>
+    <div class="commit-label">What this work should signal</div>
     <div class="commit-items">
       <div class="commit-item">
         <div class="commit-item-title">Transparency over silence</div>
-        <div class="commit-item-text">If an assumption is wrong or a timeline slips, I will surface it early and clearly.</div>
+        <div class="commit-item-text">If an assumption is wrong or a timeline slips, I will surface it early, clearly, and with a recovery path.</div>
       </div>
       <div class="commit-item">
         <div class="commit-item-title">Infrastructure the team can own</div>
-        <div class="commit-item-text">Everything will be documented, IaC-managed, and operable by the broader team.</div>
+        <div class="commit-item-text">Everything will be documented, IaC-managed, and operable by the broader team without heroics.</div>
       </div>
       <div class="commit-item">
         <div class="commit-item-title">Decisions, not opinions</div>
-        <div class="commit-item-text">Major tooling choices should be documented, reviewable, and tied to the constraints that matter.</div>
+        <div class="commit-item-text">Major choices should be documented, reviewable, and tied to the constraints that actually matter.</div>
       </div>
     </div>
   </div>

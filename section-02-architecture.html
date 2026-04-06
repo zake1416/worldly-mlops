@@ -87,7 +87,6 @@
     </div>
     <div class="goal-meta">
       <div>
-        <div class="goal-meta-label"></div>
         <div class="goal-meta-value">Use-case-first execution with systems that scale cleanly</div>
       </div>
       <div class="goal-meta-copy">That means starting with small, useful capabilities, building calm operating habits around them, and only productizing what proves its value.</div>
@@ -96,19 +95,19 @@
 
   <div class="outcome-grid" data-anim="fade-up">
     <div class="outcome-card outcome-primary">
-      <div class="outcome-label">Value 01</div>
-      <div class="outcome-title">Lower execution risk</div>
-      <div class="outcome-text">Stronger quality gates, clearer ownership, and fewer silent failures.</div>
+      <div class="outcome-label">Outcome 01</div>
+      <div class="outcome-title">Lower risk</div>
+      <div class="outcome-text">Fewer silent failures, clearer controls, stronger operational confidence.</div>
     </div>
     <div class="outcome-card outcome-primary">
-      <div class="outcome-label">Value 02</div>
-      <div class="outcome-title">Faster product delivery</div>
-      <div class="outcome-text">Reusable platform patterns so teams spend less time rebuilding the basics.</div>
+      <div class="outcome-label">Outcome 02</div>
+      <div class="outcome-title">More delivery leverage</div>
+      <div class="outcome-text">Reusable patterns so teams spend less time fighting infrastructure and more time shipping value.</div>
     </div>
     <div class="outcome-card outcome-primary">
-      <div class="outcome-label">Value 03</div>
-      <div class="outcome-title">Safer AI adoption</div>
-      <div class="outcome-text">A governed path for search, retrieval, and model serving when the use case is ready.</div>
+      <div class="outcome-label">Outcome 03</div>
+      <div class="outcome-title">Safer AI expansion</div>
+      <div class="outcome-text">A governed path to retrieval, model serving, and product intelligence once the foundation is ready.</div>
     </div>
   </div>
 
@@ -116,55 +115,55 @@
     <div class="pillar-card">
       <div class="pillar-label">Principle 01</div>
       <div class="pillar-title">Quality before intelligence</div>
-      <div class="pillar-copy">I would put validation and lineage ahead of model sophistication so teams can trust what ships.</div>
+      <div class="pillar-copy">Validation, lineage, and observability come before feature velocity so teams can trust what ships.</div>
     </div>
     <div class="pillar-card">
       <div class="pillar-label">Principle 02</div>
       <div class="pillar-title">One operating model</div>
-      <div class="pillar-copy">I would prefer shared infrastructure patterns over one-off solutions that increase operational load.</div>
+      <div class="pillar-copy">Shared standards, templates, and runtime behavior beat one-off solutions that create long-term drag.</div>
     </div>
     <div class="pillar-card">
       <div class="pillar-label">Principle 03</div>
       <div class="pillar-title">Product usefulness over tech novelty</div>
-      <div class="pillar-copy">I would treat AI as a product capability to prove carefully, not a platform story to force early.</div>
+      <div class="pillar-copy">AI should follow trusted data and clear use cases, not lead them.</div>
     </div>
   </div>
 
   <div class="ribbon">
     <div>
-      <div class="ribbon-label">How I Would Work</div>
-      <div class="ribbon-title">Partner across product, data, DevOps, and architecture.</div>
-      <div class="ribbon-copy">The role is most valuable when it reduces coordination cost for the rest of the team: clear interfaces, documented choices, and calm execution.</div>
+      <div class="ribbon-label">How I Operate</div>
+      <div class="ribbon-title">Structured, consultative, and practical.</div>
+      <div class="ribbon-copy">I frame the bottleneck, surface the viable paths, document the tradeoffs, and drive milestone-based execution with product, DevOps, data, analytics, and architecture as active partners.</div>
     </div>
     <div class="ribbon-tools">
-      <span>Dagster</span>
-      <span>Great Expectations</span>
-      <span>MLflow</span>
-      <span>Terraform</span>
+      <span>Decision memos</span>
+      <span>Proof-of-value pilots</span>
+      <span>Observability first</span>
+      <span>IaC by default</span>
     </div>
   </div>
 
   <div class="quick-win-box" data-anim="scale-up">
-    <div class="qw-header">How I would start</div>
+    <div class="qw-header">First moves</div>
     <div class="qw-items">
-      <div class="qw-item"><div class="qw-num">01</div><div class="qw-text"><strong>Understand the current system.</strong> Sources, workflows, owners, and failure patterns mapped.</div></div>
-      <div class="qw-item"><div class="qw-num">02</div><div class="qw-text"><strong>Stabilize one meaningful path.</strong> One workflow made observable, testable, and safe to change.</div></div>
-      <div class="qw-item"><div class="qw-num">03</div><div class="qw-text"><strong>Codify the operating pattern.</strong> Reuse the same quality, lineage, and deployment model from there.</div></div>
+      <div class="qw-item"><div class="qw-num">01</div><div class="qw-text"><strong>Discovery.</strong> Stakeholder interviews, current-state mapping, and a pain-point inventory across platform, data, analytics, and engineering.</div></div>
+      <div class="qw-item"><div class="qw-num">02</div><div class="qw-text"><strong>Validation.</strong> One decision-grade workflow made observable, testable, and trustworthy end to end.</div></div>
+      <div class="qw-item"><div class="qw-num">03</div><div class="qw-text"><strong>Standardization.</strong> Lightweight templates, quality gates, and repeatable pipeline patterns built from that first slice.</div></div>
     </div>
   </div>
 
   <div class="adr-wrap" data-anim="fade-up">
-    <div class="adr-label">How I would make decisions</div>
+    <div class="adr-label">Decision logic</div>
     <table class="adr-table">
-      <thead><tr><th>Decision</th><th>Likely direction</th><th>Alternative</th><th>What I would optimize for</th></tr></thead>
+      <thead><tr><th>Decision</th><th>Likely direction</th><th>Alternative</th><th>What matters</th></tr></thead>
       <tbody>
-        <tr><td><strong>Orchestration</strong></td><td>Dagster</td><td>Airflow</td><td>Asset lineage is native. Better fit for a regulated data platform.</td></tr>
-        <tr><td><strong>Table format</strong></td><td>Apache Iceberg</td><td>Delta Lake, Hudi</td><td>Handles schema evolution and time travel without painful rewrites.</td></tr>
-        <tr><td><strong>Drift monitoring</strong></td><td>Evidently AI</td><td>WhyLogs, Arize</td><td>Self-hosted, open-source, and easy to wire into Dagster checks.</td></tr>
-        <tr><td><strong>Vector DB</strong></td><td>Qdrant</td><td>Milvus, Weaviate</td><td>Strong multi-tenancy and metadata filtering in one self-hosted stack.</td></tr>
-        <tr><td><strong>LLM inference</strong></td><td>vLLM</td><td>SageMaker, TGI</td><td>Private high-concurrency serving, including non-AWS regions.</td></tr>
+        <tr><td><strong>Orchestration</strong></td><td>Dagster</td><td>Airflow</td><td>Native asset lineage. Better fit for a decision-grade data platform.</td></tr>
+        <tr><td><strong>Table format</strong></td><td>Apache Iceberg</td><td>Delta Lake, Hudi</td><td>Schema evolution and time travel without painful rewrites.</td></tr>
+        <tr><td><strong>Drift monitoring</strong></td><td>Evidently AI</td><td>WhyLogs, Arize</td><td>Self-hosted and straightforward to wire into validation checks.</td></tr>
+        <tr><td><strong>Vector DB</strong></td><td>Qdrant</td><td>Milvus, Weaviate</td><td>Strong filtering and multi-tenancy in one self-hosted stack.</td></tr>
+        <tr><td><strong>LLM inference</strong></td><td>vLLM</td><td>SageMaker, TGI</td><td>Private, high-concurrency serving across AWS and constrained regions.</td></tr>
         <tr><td><strong>Object storage</strong></td><td>MinIO</td><td>HDFS, Ceph</td><td>One S3-compatible storage model across US, EU, and China.</td></tr>
-        <tr><td><strong>Feature store</strong></td><td>Feast</td><td>Tecton, Hopsworks</td><td>Open-source and portable for shared ESG features and embeddings.</td></tr>
+        <tr><td><strong>Feature store</strong></td><td>Feast</td><td>Tecton, Hopsworks</td><td>Portable foundation for shared features and embeddings.</td></tr>
       </tbody>
     </table>
   </div>

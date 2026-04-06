@@ -74,83 +74,79 @@
 <!-- ═══════ S4: PHASES ═══════ -->
 <div class="sec-wrap" data-anim="fade-up">
   <div class="sec-num">04</div>
-  <h2>How I would <span class="g">sequence the work.</span></h2>
-  <p class="sec-sub">The order matters more than the tooling. I would establish trust in the data path first, then make delivery repeatable, then expand into higher-value AI and reporting workflows.</p>
+  <h2>The rollout path: <span class="g">fix trust first, then scale what works.</span></h2>
+  <p class="sec-sub">The sequence matters more than the tooling. Data reliability comes first. Pipeline operationalization comes next. Productized ML comes after the path is trustworthy, observable, and repeatable.</p>
 </div>
 <div class="content">
-  <div class="resource-ctx" data-anim="fade-left"><strong>Execution model:</strong> I would work as an enabling function across product, data, DevOps, and architecture. The point is not to build in isolation. The point is to reduce delivery friction and make the next set of product decisions easier.</div>
+  <div class="resource-ctx" data-anim="fade-left"><strong>Execution model:</strong> I would run this as a consultative, milestone-based program: discovery interviews, architecture mapping, proof-of-value pilots, decision memos for key tradeoffs, and slice-by-slice rollout instead of a giant-bang migration.</div>
   <div class="phases">
     <div class="phase" data-anim="fade-left" data-delay="1">
       <div class="p-left"><div class="p-lnum">Phase 01</div><div class="p-lname">Stabilize the critical path</div><div class="p-ltime">First</div></div>
       <div class="p-right">
         <div class="p-rtitle">Audit first. Understand the current stack, data gaps, and failure modes before building.</div>
         <div class="p-tags">
-          <span class="pt pt-g">Embed with DevOps &amp; architecture teams</span>
-          <span class="pt pt-g">Audit current data lake &amp; GoBlu schemas</span>
-          <span class="pt pt-g">Map every source, schema &amp; quality failure mode</span>
-          <span class="pt pt-g">Define data quality contracts with data science</span>
-          <span class="pt pt-d">MinIO + Iceberg skeleton (AWS EKS)</span>
-          <span class="pt pt-d">First 3 Airbyte connectors</span>
-          <span class="pt pt-d">dbt + Great Expectations gates</span>
-          <span class="pt pt-s">Terraform IaC (US, AWS-first)</span>
-          <span class="pt pt-s">GitHub Actions baseline CI/CD</span>
+          <span class="pt pt-g">Stakeholder discovery across platform, data, and product</span>
+          <span class="pt pt-g">Current-state architecture mapping</span>
+          <span class="pt pt-g">Pain-point inventory and failure-mode review</span>
+          <span class="pt pt-g">Data quality contracts on the first critical workflow</span>
+          <span class="pt pt-d">Initial raw-to-validated pipeline slice</span>
+          <span class="pt pt-d">Validation gates and lineage baseline</span>
+          <span class="pt pt-s">Terraform-first infrastructure baseline</span>
+          <span class="pt pt-s">CI/CD operating baseline</span>
         </div>
-        <div class="p-metric"><strong>Done when:</strong> Sources are mapped, GoBlu IDs are reconciled, contracts are agreed, and the first pipeline passes quality gates.</div>
+        <div class="p-metric"><strong>Done when:</strong> The first critical workflow is mapped, governed, and reliably passes quality gates end to end.</div>
       </div>
     </div>
     <div class="phase" data-anim="fade-right" data-delay="1">
       <div class="p-left"><div class="p-lnum">Phase 02</div><div class="p-lname">Make delivery repeatable</div><div class="p-ltime">Next</div></div>
       <div class="p-right">
-        <div class="p-rtitle">Build the platform before the models. Reproducible, tracked, and monitored from day one.</div>
+        <div class="p-rtitle">Build the operating layer before scaling models. Reproducible, tracked, and monitored from day one.</div>
         <div class="p-tags">
-          <span class="pt pt-a">Dagster orchestration</span>
-          <span class="pt pt-a">MLflow tracking + model registry</span>
-          <span class="pt pt-a">Feast feature store for ESG embeddings</span>
-          <span class="pt pt-a">Model CI/CD with shadow deploy</span>
-          <span class="pt pt-d">Full Iceberg lakehouse (US + EU)</span>
-          <span class="pt pt-d">ClickHouse for Insights Hub</span>
-          <span class="pt pt-s">K8s multi-region (US + EU)</span>
-          <span class="pt pt-s">Drift monitoring baseline</span>
+          <span class="pt pt-a">Repeatable orchestration and model tracking</span>
+          <span class="pt pt-a">Promotion path from training to monitored serving</span>
+          <span class="pt pt-a">Feature and embedding patterns teams can reuse</span>
+          <span class="pt pt-d">Lakehouse operating model expanded across core regions</span>
+          <span class="pt pt-d">Analytics surfaces moved onto governed data</span>
+          <span class="pt pt-s">Containerized runtime and region-aware deployment</span>
+          <span class="pt pt-s">Drift and operational observability baseline</span>
         </div>
-        <div class="p-metric"><strong>Done when:</strong> A model can be trained, registered, deployed, and monitored end-to-end with no bespoke glue.</div>
+        <div class="p-metric"><strong>Done when:</strong> A model can be trained, promoted, deployed, and monitored end to end without bespoke glue.</div>
       </div>
     </div>
     <div class="phase" data-anim="fade-left" data-delay="1">
       <div class="p-left"><div class="p-lnum">Phase 03</div><div class="p-lname">Expand into product leverage</div><div class="p-ltime">Then</div></div>
       <div class="p-right">
-        <div class="p-rtitle">Launch RAG, China deployment, and product-level scoring once the data layer is stable.</div>
+        <div class="p-rtitle">Expand into retrieval, region-aware deployment, and product scoring once the data layer is stable.</div>
         <div class="p-tags">
-          <span class="pt pt-v">LangChain RAG pipeline</span>
-          <span class="pt pt-v">Qdrant vector DB (multi-region)</span>
-          <span class="pt pt-v">vLLM self-hosted inference</span>
-          <span class="pt pt-r">China: MinIO on Alibaba / Huawei Cloud</span>
-          <span class="pt pt-r">China: StarRocks analytics</span>
-          <span class="pt pt-r">PIPL/DSL data boundaries</span>
-          <span class="pt pt-a">Product Impact Calculator models</span>
+          <span class="pt pt-v">Decision-grade retrieval with citations</span>
+          <span class="pt pt-v">Portable vector and inference stack</span>
+          <span class="pt pt-r">Region-aware China operating model</span>
+          <span class="pt pt-r">In-region data boundaries and compliance controls</span>
+          <span class="pt pt-a">Product scoring and higher-value decision support</span>
         </div>
-        <div class="p-metric"><strong>Done when:</strong> The Assistant answers with citations, and China data stays resident while keeping the same operating model.</div>
+        <div class="p-metric"><strong>Done when:</strong> Retrieval is reliable, answers are grounded, and constrained-region deployment preserves the same operating model.</div>
       </div>
     </div>
     <div class="phase" data-anim="fade-right" data-delay="1">
       <div class="p-left"><div class="p-lnum">Phase 04</div><div class="p-lname">Scale what proves useful</div><div class="p-ltime">After that</div></div>
       <div class="p-right">
-        <div class="p-rtitle">Scale compliance reporting, risk intelligence, and platform efficiency.</div>
+        <div class="p-rtitle">Scale compliance reporting, risk intelligence, and operating efficiency.</div>
         <div class="p-tags">
-          <span class="pt pt-g">CSRD report generation pipeline</span>
-          <span class="pt pt-g">Digital Product Passport outputs</span>
-          <span class="pt pt-a">Worldly Axion risk scoring</span>
-          <span class="pt pt-s">Auto-scaling cost optimization</span>
-          <span class="pt pt-s">Full observability stack</span>
+          <span class="pt pt-g">Audit-ready reporting workflows</span>
+          <span class="pt pt-g">Digital product and compliance outputs</span>
+          <span class="pt pt-a">Operational risk and scoring capabilities</span>
+          <span class="pt pt-s">Cost-aware scaling and runtime discipline</span>
+          <span class="pt pt-s">Full observability and service ownership</span>
         </div>
-        <div class="p-metric"><strong>Done when:</strong> Reporting is audit-ready, one-click, and clearly differentiated by infrastructure quality.</div>
+        <div class="p-metric"><strong>Done when:</strong> Reporting is audit-ready, operational burden is lower, and new product capabilities ride on trusted infrastructure.</div>
       </div>
     </div>
   </div>
 
   <div class="phase-closing" data-anim="pop">
-    <div class="phase-closing-label">What this approach is meant to create</div>
-    <div class="phase-closing-title">A calmer engineering environment for product teams that depend on data and ML.</div>
-    <div class="phase-closing-sub">If the sequence is right, the team gets cleaner handoffs, more reliable releases, and a safer path to AI capabilities that are genuinely useful.</div>
+    <div class="phase-closing-label">What success looks like</div>
+    <div class="phase-closing-title">A platform that is easier to trust, easier to operate, and easier to extend.</div>
+    <div class="phase-closing-sub">That is the point of the rollout: decision-grade data, repeatable delivery, observability-first operations, and ML capabilities that arrive on solid ground.</div>
   </div>
 </div>
 </main>

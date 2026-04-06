@@ -74,83 +74,83 @@
 <!-- ═══════ S3: DECISION PRINCIPLES ═══════ -->
 <div class="sec-wrap" data-anim="fade-up">
   <div class="sec-num">03</div>
-  <h2>Decision principles for <span class="g">how I would build.</span></h2>
-  <p class="sec-sub">I would make infrastructure choices based on product speed, operational simplicity, privacy boundaries, and long-term portability, not on ideology.</p>
+  <h2>The architecture decision: <span class="g">AWS-first where it helps, portable where it matters.</span></h2>
+  <p class="sec-sub">There are only a few viable paths here. I would use AWS where it accelerates execution, keep core data layers portable where constraints are real, and avoid early choices that create expensive lock-in.</p>
 </div>
 <div class="content">
   <table class="wtable" data-anim="fade-up" data-delay="1">
     <thead>
-      <tr><th>Consideration</th><th>Managed bias</th><th>Portable bias</th><th>What I would optimize for</th></tr>
+      <tr><th>Constraint</th><th>AWS-first path</th><th>Portable path</th><th>Decision lens</th></tr>
     </thead>
     <tbody>
       <tr>
         <td><strong>China deployment</strong></td>
-        <td>AWS S3 doesn't work in mainland China. SageMaker has minimal China presence. Requires a separate Chinese AWS account with different APIs and legal entity.</td>
-        <td>MinIO self-hosts on Alibaba Cloud or Huawei Cloud. Same S3-compatible API, same Terraform module, different provider. vLLM runs on both platforms' GPU instances.</td>
+        <td>Fastest if the estate stays in one cloud. Weak fit once mainland China becomes a first-class requirement.</td>
+        <td>MinIO and portable inference keep the same operating pattern across Alibaba Cloud, Huawei Cloud, and AWS.</td>
         <td><span class="tag-h">Hard requirement</span></td>
       </tr>
       <tr>
         <td><strong>Data sovereignty (PIPL)</strong></td>
-        <td>Complex compliance posture. AWS China regions exist but are separate legal entities with unclear PIPL status.</td>
-        <td>Self-hosted MinIO in Chinese cloud: data physically never leaves China. Clean legal position.</td>
+        <td>Possible, but the compliance posture is more complex and more vendor-dependent.</td>
+        <td>Self-hosted storage in-region keeps the legal position cleaner and easier to explain.</td>
         <td><span class="tag-h">Hard requirement</span></td>
       </tr>
       <tr>
         <td><strong>Schema evolution for Higg updates</strong></td>
-        <td>RDS/Redshift schema changes require migrations. Breaking changes for downstream systems every time methodology updates.</td>
-        <td>Iceberg schema evolution: add columns in place, zero downtime, historical data stays queryable at old schema.</td>
+        <td>Managed warehouses move fast early, but schema-heavy change management becomes painful over time.</td>
+        <td>Iceberg handles evolution in place and protects downstream consumers from constant rewrites.</td>
         <td><span class="tag-h">Annual requirement</span></td>
       </tr>
       <tr>
         <td><strong>LLM data privacy</strong></td>
-        <td>SageMaker managed inference endpoints. Supplier chemical inventory and social audit data cannot go to managed US endpoints.</td>
-        <td>vLLM self-hosted. Supplier data never leaves Worldly infrastructure. Clean under data agreements.</td>
+        <td>Managed endpoints are operationally convenient, but the boundary is harder to defend for sensitive supplier data.</td>
+        <td>Self-hosted inference keeps supplier data inside Worldly-controlled infrastructure.</td>
         <td><span class="tag-h">Data agreements</span></td>
       </tr>
       <tr>
         <td><strong>Cost at scale</strong></td>
-        <td>Managed services usually trade higher unit cost for faster setup and lower operational load.</td>
-        <td>Portable components usually lower long-run cost, but they ask more of the engineering team.</td>
+        <td>Higher unit cost, lower operating overhead.</td>
+        <td>Lower long-run cost, higher platform ownership burden.</td>
         <td><span class="tag-t">Tradeoff</span></td>
       </tr>
       <tr>
         <td><strong>Setup speed</strong></td>
-        <td>Faster initial configuration. Less infrastructure management. Better if team size is the constraint.</td>
-        <td>More decisions upfront. More infrastructure to manage. Slower to first pipeline.</td>
+        <td>Faster path to a first operating baseline.</td>
+        <td>Slower start, but better long-run flexibility.</td>
         <td><span class="tag-t">Tradeoff</span></td>
       </tr>
     </tbody>
   </table>
 
   <div class="alert alert-g" data-anim="scale-up">
-    <div class="alert-label">My bias</div>
-    <div class="alert-text"><strong>Managed where it reduces drag. Portable where it protects the product.</strong> I would use managed infrastructure for control-plane convenience, but keep the core data and model-serving layers portable where privacy, deployment flexibility, and long-lived product constraints matter more.</div>
+    <div class="alert-label">Recommendation</div>
+    <div class="alert-text"><strong>AWS-first for speed. Portable core layers for control.</strong> That is the best-fit architecture: fast enough for zero-to-one execution, disciplined enough for lakehouse modernization, and flexible enough for region-aware deployment without repainting the entire platform later.</div>
   </div>
 
   <div class="tco-box" data-anim="fade-up">
-    <div class="tco-box-header">How I would think about the tradeoff, qualitatively.</div>
+    <div class="tco-box-header">The real tradeoff is not cost alone. It is speed now versus flexibility later.</div>
     <div class="tco-cols">
       <div class="tco-col">
         <div class="tco-col-title">Managed-first</div>
         <div class="tco-col-sub">SageMaker + Glue + Redshift + MSK</div>
         <div class="tco-col-cost">Fastest start</div>
-        <div class="tco-col-note">Good when the priority is speed to a first operating baseline and the constraints are mostly inside one cloud. Less attractive when regional portability and private model serving become core product needs.</div>
+        <div class="tco-col-note">Best when speed to an initial baseline matters most and the constraints largely stay inside one cloud.</div>
       </div>
       <div class="tco-col tco-col-rec">
         <div class="tco-col-badge">Recommended</div>
         <div class="tco-col-title">Hybrid operating model</div>
         <div class="tco-col-sub">EKS + MinIO + Iceberg + OSS inference</div>
         <div class="tco-col-cost">Best balance</div>
-        <div class="tco-col-note">This is the operating model I would start with when the business needs both delivery speed and long-term flexibility. It keeps the team moving while avoiding hard coupling in the layers most likely to matter later.</div>
+        <div class="tco-col-note">This is where I would start when the business needs both delivery speed and long-term flexibility. It keeps execution moving without hard-coupling the layers most likely to matter later.</div>
       </div>
       <div class="tco-col">
         <div class="tco-col-title">Self-managed everywhere</div>
         <div class="tco-col-sub">Self-managed K8s + MinIO + everything OSS</div>
         <div class="tco-col-cost">Highest control</div>
-        <div class="tco-col-note">I would avoid this early unless there is a very strong constraint forcing it. It creates the most operational burden at exactly the point where the team should be learning fast and keeping execution calm.</div>
+        <div class="tco-col-note">I would avoid this early unless a hard constraint forces it. It adds the most operating burden at the point where the team should be learning fast and reducing uncertainty.</div>
       </div>
     </div>
-    <div class="tco-footer">The point is not to predict exact spend. The point is to choose an operating model that matches product constraints, team capacity, and the pace of iteration you want.</div>
+    <div class="tco-footer">The goal is not to forecast exact spend. The goal is to choose an operating model that matches product constraints, team capacity, and the pace of iteration the business needs.</div>
   </div>
 </div>
 </main>
